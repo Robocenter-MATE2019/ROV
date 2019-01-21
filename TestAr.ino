@@ -1,0 +1,30 @@
+﻿/*
+ Name:		TestAr.ino
+ Created:	13.11.2018 17:14:10
+ Author:	Виталий
+*/
+
+#include <SPI.h>
+#include <Ethernet.h>
+#include <Arduino.h>
+#include "Rov.h"
+#include "Timer.h"
+
+Rov rov;
+
+void setup()
+{
+	//Serial.begin(9600);
+	rov.init();
+	//Serial.println("start");
+}
+
+Timer t;
+
+void loop() 
+{
+	//t.start();
+	rov.run();
+	//Serial.print("timer = ");
+	//Serial.println(t.elapsed());
+}
