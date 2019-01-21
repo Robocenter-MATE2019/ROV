@@ -40,9 +40,7 @@ void ThrustersSubSystem::set_power(int8_t x, int8_t y, int8_t w, int8_t z, uint8
 	for (int i = 0; i < THRUSTER_SIZE; i++)
 	{
 		m_motors[i].set_power(power[i]);
-		//Serial.println(power[i]);
 	}
-	//Serial.println();
 }
 
 void ThrustersSubSystem::manual_regulator(int8_t power[], int8_t x, int8_t y, int8_t w, int8_t z)
@@ -59,5 +57,5 @@ void ThrustersSubSystem::manual_regulator(int8_t power[], int8_t x, int8_t y, in
 void ThrustersSubSystem::write(RovData& rov_data)
 {
 	set_power(rov_data.m_axis_x, rov_data.m_axis_y, rov_data.m_axis_w, rov_data.m_axis_z, rov_data.m_regulator_type);
-	//Serial.println("ThrustersSubSystem write");
+	PRINTDEBUG("ThrustersSubSystem write");
 }
