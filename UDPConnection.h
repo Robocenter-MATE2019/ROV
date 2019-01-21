@@ -50,5 +50,4 @@ private:
 	uint16_t m_remote_port;
 	byte m_mac[6] = { MAC };
 	Timer m_timer;
-	//Timer m_timer_;
 };
