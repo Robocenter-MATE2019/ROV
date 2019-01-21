@@ -14,7 +14,8 @@ struct RovData
 	uint8_t m_regulator_type;
 	int8_t m_manipulator_grab;
 	int8_t m_manipulator_rotate;
-	int8_t m_rotary_camera_1;
+	int8_t m_rotary_camera[2] = { 0, 0 };
+	//int8_t m_rotary_camera_1;
 	//int8_t m_rotary_camera_2;
 	int8_t m_yaw;
 	int8_t m_roll;
