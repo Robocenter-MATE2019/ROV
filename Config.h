@@ -82,9 +82,9 @@ constexpr int REMOTE_PORT =                5000;
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-
+//МАКРОСЫ ВЫНЕСТИ В ДРУГОЙ .H ФАЙЛ  назвать его как-ниибудь типа rov_utils or rov_macros или как-то так
 #ifdef RELEASE				\
-Serial.begin(9600);           
+Serial.begin(9600);           //дичь
 #define PRINTDEBUG(str)       		\
 	Serial.print("FILE: ");   	\
 	Serial.print(__FILE__);	  	\
@@ -98,7 +98,7 @@ Serial.begin(9600);
 #endif
 
 #ifdef ROVDATA									\
-Serial.begin(9600);				
+Serial.begin(9600);		// че задич это так не работает		
 static Timer timer;		
 #define PRINTROVDATA(millis)							\
 	if (!timer.is_started()) timer.start();					\
@@ -134,7 +134,7 @@ static Timer timer;
 #endif
 
 #ifdef SUBSYSTEMSTEST			\
-Serial.behin(9600);
+Serial.behin(9600); //чезадичь это так не работает
 #define SUBSYSTEMPRINT(str)		\
 	Serial.print("FILE: ");		\
 	Serial.print(__FILE__);		\
