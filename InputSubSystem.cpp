@@ -4,31 +4,27 @@
 
 InputSubSystem::InputSubSystem()
 {
-
 	int i = 0;
-#if IMU_ENABLE
-#endif 
-#if DnT_ENABLE
-#endif
-
+	if (IMU_ENABLE) {}
+	if (DnT_ENABLE) {}
 }
 
 void InputSubSystem::init()
 {
-	//Serial.println("InputSubSystem_INIT_Start");
+	PRINTDEBUG("InputSubSystem_INIT_Start");
 	for (int i = 0; i < SIZE_INPUT_DEVICES; i++)
 	{
 		m_devices[i]->init();
 	}
-	//Serial.println("InputSubSystem_INIT_End");
+	PRINTDEBUG("InputSubSystem_INIT_End");
 }
 
 void InputSubSystem::apply(RovData& rov_data)
 {
-	//Serial.println("InputSubSystem_apply_Start");
+	PRINTDEBUG("InputSubSystem_apply_Start");
 	for (int i = 0; i < SIZE_INPUT_DEVICES; i++)
 	{
 		m_devices[i]->read(rov_data);
 	}
-	//Serial.println("InputSubSystem_apply_End");
+	PRINTDEBUG("InputSubSystem_apply_End");
 }
