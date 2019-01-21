@@ -5,34 +5,27 @@
  OutputSubSystem::OutputSubSystem()
 {
 	int i = 0;
-#if MANIPULATOR_ENABLE
-	m_devices[i++] = new ROVBuilderManipulator();
-#endif
-#if THRUSTERSSUBSYSTEM_ENABLE
-	m_devices[i++] = new ThrustersSubSystem();
-#endif
-#if ROTARYCAMERA_ENABLE
-	m_devices[i++] = new Cameras();
-#endif
-
+	if(MANIPULATOR_ENABLE) m_devices[i++] = new ROVBuilderManipulator();
+	if(THRUSTERSSUBSYSTEM_ENABLE) m_devices[i++] = new ThrustersSubSystem();
+	if(ROTARYCAMERA_ENABLE) m_devices[i++] = new Cameras();
 }
 
 void OutputSubSystem::init()
 {
-	//Serial.println("OutputSubSystem_INIT_Start");
+	SUBSYSTEMPRINT("OutputSubSystem_INIT_Start");
 	for (int i = 0; i < SIZE_OUTPUT_DEVICES; i++)
 	{
 		m_devices[i]->init();
 	}
-	//Serial.println("OutputSubSystem_INIT_End");
+	SUBSYSTEMPRINT("OutputSubSystem_INIT_End");
 }
 
 void OutputSubSystem::apply(RovData& rov_data)
 {
-	//Serial.println("OutputSubSystem_apply_Start");
+	SUBSYSTEMPRINT("OutputSubSystem_apply_Start");
 	for (int i = 0; i < SIZE_OUTPUT_DEVICES; i++)
 	{
 		m_devices[i]->write(rov_data);
 	}
-	//Serial.println("OutputSubSystem_apply_End");
+	SUBSYSTEMPRINT("OutputSubSystem_apply_End");
 }
