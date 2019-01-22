@@ -4,11 +4,9 @@
 IOSubSystem::IOSubSystem()
 {
 	int i = 0;
-	if(UDP_ENABLE) m_devices[i++] = new UDPConnection(); //во всех конктрукторах где добавляются устройства делать это через макрос #if 
-	// например: #if UDP_ENABLE
-	//           m_devices[i++] = new UDPConnection();
-	//           #endif
-	// Если ненравится 3 строчки кода вместо одной, сделай параметризованный макрос
+#if UDP_ENABLE
+	m_devices[i++] = new UDPConnection();
+#endif
 }
 void IOSubSystem::init()
 {
