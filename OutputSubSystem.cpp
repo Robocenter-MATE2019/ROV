@@ -5,9 +5,15 @@
  OutputSubSystem::OutputSubSystem()
 {
 	int i = 0;
-	if(MANIPULATOR_ENABLE) m_devices[i++] = new ROVBuilderManipulator();
-	if(THRUSTERSSUBSYSTEM_ENABLE) m_devices[i++] = new ThrustersSubSystem();
-	if(ROTARYCAMERA_ENABLE) m_devices[i++] = new Cameras();
+#if MANIPULATOR_ENABLE
+	m_devices[i++] = new ROVBuilderManipulator();
+#endif
+#if THRUSTERSSUBSYSTEM_ENABLE
+	m_devices[i++] = new ThrustersSubSystem();
+#endif
+#if ROTARYCAMERA_ENABLE
+	m_devices[i++] = new Cameras();
+#endif
 }
 
 void OutputSubSystem::init()
