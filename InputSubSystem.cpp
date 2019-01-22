@@ -5,8 +5,10 @@
 InputSubSystem::InputSubSystem()
 {
 	int i = 0;
-	if (IMU_ENABLE) {}
-	if (DnT_ENABLE) {}
+#if IMU_ENABLE
+#endif
+#if DnT_ENABLE
+#endif
 }
 
 void InputSubSystem::init()
