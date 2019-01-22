@@ -16,12 +16,7 @@ struct InputPacket
 	int8_t axisZ_p = 0; //! -100/100;    
 	int8_t axisW_p = 0; //! -100/100;
 	int8_t camera_rotate = 0;
-	//uint8_t debugFlag = 0;
-	int8_t manipulator_rotate = 0; //! -100/100    
-	//int8_t manipulatorGrab = 0; //! -1 close/+1 open;
-	//uint8_t regulators = 0; //! 1st bit - depth;
-	//float desiredDepth = 0.0f;
-	//bool m_actionState[12];
+	int8_t manipulator_rotate = 0;
 };
 
 struct OutputPacket
