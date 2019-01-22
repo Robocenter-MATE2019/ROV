@@ -14,5 +14,5 @@ public:
 	void init();
 	void write(RovData& rov_data);
 private:
-	RotaryCamera m_rotary_cam;
+	RotaryCamera m_rotary_cam[1];
 };
