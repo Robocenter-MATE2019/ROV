@@ -2,11 +2,7 @@
 
 #include <Arduino.h>
 #include "Timer.h"
-
-#define RELEASE
-//#define DEBUG
-#define ROVDATA
-#define SUBSYSTEMSTEST
+#include "ROV_MACROS.h"
 
 /////////////////////////////////////////////////
 //////////////////Devices////////////////////////
@@ -18,8 +14,8 @@
 #define IOSUBSYSTEM_ENABLE                 1
 
 #define MANIPULATOR_ENABLE                 1
-#define THRUSTERSSUBSYSTEM_ENABLE		   1
-#define ROTARYCAMERA_ENABLE				   1
+#define THRUSTERSSUBSYSTEM_ENABLE	   1
+#define ROTARYCAMERA_ENABLE		   1
 
 #define IMU_ENABLE                         0
 #define DnT_ENABLE                         0
@@ -82,69 +78,4 @@ constexpr int REMOTE_PORT =                5000;
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
-//МАКРОСЫ ВЫНЕСТИ В ДРУГОЙ .H ФАЙЛ  назвать его как-ниибудь типа rov_utils or rov_macros или как-то так
-#ifdef RELEASE				\
-Serial.begin(9600);           //дичь
-#define PRINTDEBUG(str)       		\
-	Serial.print("FILE: ");   	\
-	Serial.print(__FILE__);	  	\
-	Serial.print(" | LINE: ");	\
-	Serial.print(__LINE__);   	\
-	Serial.print(" | MSG: "); 	\
-	Serial.println(str);      	\
-
-#else 
-#define PRINTDEBUG(str)
-#endif
-
-#ifdef ROVDATA									\
-Serial.begin(9600);		// че задич это так не работает		
-static Timer timer;		
-#define PRINTROVDATA(millis)							\
-	if (!timer.is_started()) timer.start();					\
-	if (timer.elapsed() > millis)						\
-	{									\
-		for (int i = 0; i < 12; i++)					\
-		{								\
-			Serial.print("button = ");				\
-			Serial.print(i);					\
-			Serial.print("     value = ");				\
-			Serial.println(actionState[i]);				\
-		}								\
-		Serial.print("m_axis_x = ");					\
-		Serial.println(rov_data.m_axis_x);				\
-		Serial.print("m_axis_y = ");					\
-		Serial.println(rov_data.m_axis_y);				\
-		Serial.print("m_axis_z = ");					\
-		Serial.println(rov_data.m_axis_z);				\
-		Serial.print("m_axis_w = ");					\
-		Serial.println(rov_data.m_axis_w);				\
-		Serial.print("m_rotary_camera_1 = ");				\
-		Serial.println(rov_data.m_rotary_camera[0]);			\
-		Serial.print("m_rotary_camera_2 = ");				\
-		Serial.println(rov_data.m_rotary_camera[1]);			\
-		Serial.print("m_manipulator_rotate = ");			\
-		Serial.println(rov_data.m_manipulator_rotate);			\
-		Serial.print("m_manipulator_grab = ");				\
-		Serial.println(rov_data.m_manipulator_grab);			\
-		timer.start();							\
-	}
-#else
-#define PRINTROVDATA
-#endif
-
-#ifdef SUBSYSTEMSTEST			\
-Serial.behin(9600); //чезадичь это так не работает
-#define SUBSYSTEMPRINT(str)		\
-	Serial.print("FILE: ");		\
-	Serial.print(__FILE__);		\
-	Serial.print(" | LINE: ");	\
-	Serial.print(__LINE__);		\
-	Serial.print(" | MSG: ");	\
-	Serial.println(str);		\
-
-#else						
-#define SUBSYSTEMPRINT(str)			
-#endif					
-
 
