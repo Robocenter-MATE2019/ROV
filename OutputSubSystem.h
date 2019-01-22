@@ -5,6 +5,7 @@
 #include "ThrustersSubSystem.h"
 #include "ROVBuilderManipulator.h"
 #include "Output.h"
+#include "ROV_MACROS.h"
 
 class OutputSubSystem :public SubSystem
 {
