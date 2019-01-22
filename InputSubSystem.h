@@ -4,6 +4,7 @@
 #include "RovData.h"
 #include "Input.h"
 #include "Config.h"
+#include "ROV_MACROS.h"
 
 class InputSubSystem :public SubSystem
 {
