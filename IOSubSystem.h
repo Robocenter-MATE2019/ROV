@@ -2,19 +2,15 @@
 
 #include "SubSystem.h"
 #include "RovData.h"
-#include "Input.h"
-#include "Config.h"
+#include "UDPConnection.h"
+#include "InputOutput.h"
 #include "ROV_MACROS.h"
 
-class InputSubSystem :public SubSystem
+class IOSubSystem : public SubSystem
 {
 public:
-	InputSubSystem();
+	IOSubSystem();
 	void init() override;
 	void apply(RovData& rov_data) override;
-	Input* m_devices[SIZE_INPUT_DEVICES];
+	InputOutput* m_devices[SIZE_IO_DEVICES];
 };
-
-
-
-
