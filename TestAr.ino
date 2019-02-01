@@ -1,4 +1,4 @@
-﻿/*
+/*
  Name:		TestAr.ino
  Created:	13.11.2018 17:14:10
  Author:	Виталий
@@ -14,7 +14,9 @@ Rov rov;
 
 void setup()
 {
-	//Serial.begin(9600);
+#ifdef SERIALENABLE
+	Serial.begin(9600);
+#endif
 	rov.init();
 	//Serial.println("start");
 }
