@@ -18,20 +18,20 @@
 
 void OutputSubSystem::init()
 {
-	SUBSYSTEMPRINT("OutputSubSystem_INIT_Start");
+	PRINTDEBUG("OutputSubSystem_INIT_Start");
 	for (int i = 0; i < SIZE_OUTPUT_DEVICES; i++)
 	{
 		m_devices[i]->init();
 	}
-	SUBSYSTEMPRINT("OutputSubSystem_INIT_End");
+	PRINTDEBUG("OutputSubSystem_INIT_End");
 }
 
 void OutputSubSystem::apply(RovData& rov_data)
 {
-	SUBSYSTEMPRINT("OutputSubSystem_apply_Start");
+	PRINTDEBUG("OutputSubSystem_apply_Start");
 	for (int i = 0; i < SIZE_OUTPUT_DEVICES; i++)
 	{
 		m_devices[i]->write(rov_data);
 	}
-	SUBSYSTEMPRINT("OutputSubSystem_apply_End");
+	PRINTDEBUG("OutputSubSystem_apply_End");
 }
