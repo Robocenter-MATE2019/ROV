@@ -14,8 +14,8 @@
 #define IOSUBSYSTEM_ENABLE                 1
 
 #define MANIPULATOR_ENABLE                 1
-#define THRUSTERSSUBSYSTEM_ENABLE	   1
-#define ROTARYCAMERA_ENABLE		   1
+#define THRUSTERSSUBSYSTEM_ENABLE		   1
+#define ROTARYCAMERA_ENABLE				   1
 
 #define IMU_ENABLE                         0
 #define DnT_ENABLE                         0
@@ -43,13 +43,13 @@ constexpr int MANIPULATOR_ROTATE_RIGHT =   33;
 /////////////////////////////////////////////////
 
 constexpr int H_FRONT_LEFT =               7;
-constexpr bool H_FRONT_LEFT_INVERSE =      false;
+constexpr bool H_FRONT_LEFT_INVERSE =      true;
 constexpr int H_FRONT_RIGHT =              5;
 constexpr bool H_FRONT_RIGHT_INVERSE =     false;
 constexpr int H_BACK_LEFT =                4;
 constexpr bool H_BACK_LEFT_INVERSE =       false;
 constexpr int H_BACK_RIGHT =               6;
-constexpr bool H_BACK_RIGHT_INVERSE =      false;
+constexpr bool H_BACK_RIGHT_INVERSE =      true;
 
 constexpr int V_LEFT =                     3;
 constexpr bool V_LEFT_INVERSE =            false;

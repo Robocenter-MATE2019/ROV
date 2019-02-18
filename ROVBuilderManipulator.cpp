@@ -10,6 +10,7 @@ void ROVBuilderManipulator::init()
 {
 	m_release_level_motor.init();
 	m_rotate_level_motor.init();
+	DEVICESPRINT("ROVBuilderManipulator.init()");
 }
 
 void ROVBuilderManipulator::set_power(int8_t release, int8_t rotate)
@@ -21,5 +22,5 @@ void ROVBuilderManipulator::set_power(int8_t release, int8_t rotate)
 void ROVBuilderManipulator::write(RovData& rov_data)
 {
 	set_power(rov_data.m_manipulator_grab, rov_data.m_manipulator_rotate);
-	PRINTDEBUG("ROVManipulator write");
+	DEVICESPRINT("ROVBuilderManipulator.write()");
 }

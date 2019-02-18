@@ -24,7 +24,7 @@ void Rov::init()
 	{
 		m_subsystem[i]->init();
 	}
-	delay(10000);
+	//delay(10000);
 }
 
 void Rov::run()

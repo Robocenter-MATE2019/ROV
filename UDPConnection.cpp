@@ -14,6 +14,7 @@ void UDPConnection::init()
 	m_udp.begin(m_self_port);
 	delay(100);
 	m_timer.start();
+	DEVICESPRINT("UDPConnection.init()");
 }
 
 bool UDPConnection::receivePacket(RovData& rov_data)
@@ -109,11 +110,11 @@ void UDPConnection::write(RovData& rov_data)
 	packet.roll = 10;
 	packet.temp = 10;
 	sendPacket(packet);
-	PRINTDEBUG("UDPConnection write");
+	DEVICESPRINT("UDPConnection.write()");
 }
 
 void UDPConnection::read(RovData& rov_data)
 {
 	receivePacket(rov_data);
-	PRINTDEBUG("UDPConnection read");
+	DEVICESPRINT("UDPConnection.read()");
 }
