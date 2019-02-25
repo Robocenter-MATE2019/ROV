@@ -5,7 +5,8 @@
 InputSubSystem::InputSubSystem()
 {
 	int i = 0;
-#if IMU_ENABLE
+#if TEMPERATURE_SENSOR_ENABLE
+	m_devices[i++] = new TemperatureSensor();
 #endif
 #if DnT_ENABLE
 #endif

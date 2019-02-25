@@ -5,6 +5,7 @@
 #include "Input.h"
 #include "Config.h"
 #include "ROV_MACROS.h"
+#include "TemperatureSensor.h"
 
 class InputSubSystem :public SubSystem
 {
