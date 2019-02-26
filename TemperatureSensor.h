@@ -2,18 +2,16 @@
 
 #include <OneWire.h>
 #include "Timer.h"
-#include "Input.h"
-#include "RovData.h"
-#include "Config.h"
 
-class TemperatureSensor : public Input
+class TemperatureSensor
 {
 public:
-	TemperatureSensor();	
-	void init();
-	void read(RovData &rov_data);
-private:
+	TemperatureSensor();
+	TemperatureSensor(int pin) : m_wire(pin)
+	{
+	}
 	float getTemperature();
+private:
 	OneWire m_wire;
 	Timer m_timer;
 	float result = -1;

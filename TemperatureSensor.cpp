@@ -2,12 +2,7 @@
 
 TemperatureSensor::TemperatureSensor()
 {
-	m_wire = OneWire(TEMPERATURE_SENSOR);
-}
 
-void TemperatureSensor::init() 
-{
-	DEVICESPRINT("TemperatureSensor.init()");
 }
 
 float TemperatureSensor::getTemperature()
@@ -57,10 +52,4 @@ float TemperatureSensor::getTemperature()
 		m_timer.stop();
 		return result;
 	}
-}
-
-void TemperatureSensor::read(RovData &rov_data)
-{
-	rov_data.m_temperature = getTemperature();
-	DEVICESPRINT("TemperatureSensor.read()");
 }
