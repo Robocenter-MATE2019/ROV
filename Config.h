@@ -52,12 +52,16 @@ constexpr bool H_BACK_LEFT_INVERSE =		false;
 constexpr int H_BACK_RIGHT =				6;
 constexpr bool H_BACK_RIGHT_INVERSE =		true;
 
-constexpr int V_LEFT =						3;
-constexpr bool V_LEFT_INVERSE =				false;
-constexpr int V_RIGHT =						2;
-constexpr bool V_RIGHT_INVERSE =			false;
+constexpr int V_FRONT_LEFT =				3;
+constexpr bool V_FRONT_LEFT_INVERSE =		false;
+constexpr int V_FRONT_RIGHT =				2;
+constexpr bool V_FRONT_RIGHT_INVERSE =		false;
+constexpr int V_BACK_LEFT =					1;
+constexpr bool V_BACK_LEFT_INVERSE =		false;
+constexpr int V_BACK_RIGHT =				8;
+constexpr bool V_BACK_RIGHT_INVERSE =		false;
 
-constexpr int THRUSTER_SIZE =				6;
+constexpr int THRUSTER_SIZE =				8;
 
 /////////////////////////////////////////////////
 //////////////////RotaryCamera///////////////////
@@ -82,3 +86,14 @@ constexpr int REMOTE_PORT =					5000;
 
 constexpr int TEMPERATURE_SENSOR =			9;
 
+/////////////////////////////////////////////////
+////////////////////IMU//////////////////////////
+/////////////////////////////////////////////////
+
+//constexpr int IMU_SENSOR =					10;
+
+/////////////////////////////////////////////////
+////////////////////Depth////////////////////////
+/////////////////////////////////////////////////
+
+//constexpr int DEPTH_SENSOR =					10;
