@@ -77,8 +77,8 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\ROVLibs;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\libraries\SPI\src;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\libraries\Ethernet\src;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\libraries\Servo\src;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\libraries\Ethernet\src\utility;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\libraries;$(ProjectDir)..\..\..\Documents\Arduino\Scetchs\libraries;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\libraries;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\cores\arduino;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\variants\mega;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\avr\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\avr\include\avr;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\lib\gcc\avr\4.8.1\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\lib\gcc\avr\4.9.2\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(ProjectDir)__vm\.ROVLibs.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\ROV-master;$(ProjectDir)..\..\..\Documents\Arduino\Scetchs\libraries\OneWire-master;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\libraries\SPI\src;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\libraries\Ethernet\src;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\libraries\Servo\src;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\libraries\Ethernet\src\utility;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\libraries;$(ProjectDir)..\..\..\Documents\Arduino\Scetchs\libraries;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\libraries;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\cores\arduino;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\variants\mega;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\avr\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\avr\include\avr;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\lib\gcc\avr\4.8.1\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\lib\gcc\avr\4.9.2\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>$(ProjectDir)__vm\.ROV-master.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <IgnoreStandardIncludePath>false</IgnoreStandardIncludePath>
       <PreprocessorDefinitions>__AVR_ATmega2560__;_VMDEBUG=1;F_CPU=16000000L;ARDUINO=10807;ARDUINO_AVR_MEGA2560;ARDUINO_ARCH_AVR;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
@@ -128,11 +128,13 @@
     <ClInclude Include="Motor.h" />
     <ClInclude Include="Output.h" />
     <ClInclude Include="OutputSubSystem.h" />
+    <ClInclude Include="PIDRegulator.h" />
     <ClInclude Include="RotaryCamera.h" />
     <ClInclude Include="Rov.h" />
     <ClInclude Include="ROVBuilderManipulator.h" />
     <ClInclude Include="RovData.h" />
     <ClInclude Include="SubSystem.h" />
+    <ClInclude Include="TemperatureSensor.h" />
     <ClInclude Include="ThrustersSubSystem.h" />
     <ClInclude Include="Timer.h" />
     <ClInclude Include="UARTCommunicator.h" />
@@ -150,10 +152,12 @@
     <ClCompile Include="LevelMotor.cpp" />
     <ClCompile Include="Motor.cpp" />
     <ClCompile Include="OutputSubSystem.cpp" />
+    <ClCompile Include="PIDRegulator.cpp" />
     <ClCompile Include="RotaryCamera.cpp" />
     <ClCompile Include="Rov.cpp" />
     <ClCompile Include="ROVBuilderManipulator.cpp" />
     <ClCompile Include="SubSystem.cpp" />
+    <ClCompile Include="TemperatureSensor.cpp" />
     <ClCompile Include="ThrustersSubSystem.cpp" />
     <ClCompile Include="Timer.cpp" />
     <ClCompile Include="UARTCommunicator.cpp" />

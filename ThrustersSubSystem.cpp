@@ -38,35 +38,43 @@ void ThrustersSubSystem::init()
 void ThrustersSubSystem::set_power(int8_t x, int8_t y, int8_t w, int8_t z, uint8_t regulator_type, RovData& rov_data)
 {
 	int8_t power[THRUSTER_SIZE];
-	if (rov_data.m_axis_z == 0)
+	if (rov_data.m_axis_z != 0)
 	{
 		//rov_data.m_depth_to_set = ...getDepth();
 	}
-	if (rov_data.m_axis_w == 0)
+	if (rov_data.m_axis_w != 0)
 	{
 		//rov_data.m_yaw_to_set = ...getYaw();
 	}
-	if (regulator_type & 0x0)
-	{
-		manual_regulator(power, x, y, w, z);
-		pitch_regulator(power, x, y, w, z, rov_data);
-		roll_regulator(power, x, y, w, z, rov_data);
-	}
+	manual_regulator(power, x, y, w, z);
 	if(regulator_type & 0x1)
 	{
-		depth_regulator(power, x, y, w, z, rov_data);
+		int pow = m_depth_reg.apply(rov_data.m_depth_to_set, rov_data.m_depth);
+		power[4] += pow;
+		power[5] += pow;
+		power[6] += pow;
+		power[7] += pow;
 	}
 	if (regulator_type & 0x2)
 	{
-		pitch_regulator(power, x, y, w, z, rov_data);
-		roll_regulator(power, x, y, w, z, rov_data);
+		int pow = m_yaw_reg.apply(rov_data.m_yaw_to_set, rov_data.m_yaw);
+		power[0] += pow;
+		power[1] -= pow;
+		power[2] += pow;
+		power[3] -= pow;
 	}
 	if (regulator_type & 0x4)
 	{
-		yaw_regulator(power, x, y, w, z, rov_data);
-		depth_regulator(power, x, y, w, z, rov_data);
-		pitch_regulator(power, x, y, w, z, rov_data);
-		roll_regulator(power, x, y, w, z, rov_data);
+		int pow = m_roll_reg.apply(rov_data.m_roll_to_set, rov_data.m_roll);
+		power[4] += pow;
+		power[5] -= pow;
+		power[6] += pow;
+		power[7] -= pow;
+		pow = m_pitch_reg.apply(rov_data.m_pitch_to_set, rov_data.m_pitch);
+		power[4] += pow;
+		power[5] += pow;
+		power[6] -= pow;
+		power[7] -= pow;
 	}
 	for (int i = 0; i < THRUSTER_SIZE; i++)
 	{
@@ -80,59 +88,6 @@ void ThrustersSubSystem::manual_regulator(int8_t power[], int8_t x, int8_t y, in
 	power[2] = constrain(y - x - w, -100, 100);
 	power[0] = constrain(y - x + w, -100, 100);
 	power[1] = constrain(y + x - w, -100, 100);
-	power[4] = constrain(z, -100, 100);
-	power[5] = constrain(z, -100, 100);
-	power[6] = constrain(z, -100, 100);
-	power[7] = constrain(z, -100, 100);
-}
-
-void ThrustersSubSystem::yaw_regulator(int8_t power[], int8_t x, int8_t y, int8_t w, int8_t z, RovData& rov_data)
-{
-	w = m_yaw_reg.apply(rov_data.m_yaw_to_set, rov_data.m_depth);
-	power[0] = constrain(y - x + w, -100, 100);
-	power[1] = constrain(y + x - w, -100, 100);
-	power[2] = constrain(y - x - w, -100, 100);
-	power[3] = constrain(y + x + w, -100, 100);
-	power[4] = constrain(z, -100, 100);
-	power[5] = constrain(z, -100, 100);
-	power[6] = constrain(z, -100, 100);
-	power[7] = constrain(z, -100, 100);
-}
-
-void ThrustersSubSystem::pitch_regulator(int8_t power[], int8_t x, int8_t y, int8_t w, int8_t z, RovData& rov_data)
-{
-	z = m_pitch_reg.apply(rov_data.m_pitch_to_set, rov_data.m_pitch);
-	power[0] = constrain(y - x + w, -100, 100);
-	power[1] = constrain(y + x - w, -100, 100);
-	power[2] = constrain(y - x - w, -100, 100);
-	power[3] = constrain(y + x + w, -100, 100);
-	power[4] = constrain(z, -100, 100);
-	power[5] = constrain(z, -100, 100);
-	power[6] = constrain(-z, -100, 100);
-	power[7] = constrain(-z, -100, 100);
-
-}
-
-void ThrustersSubSystem::roll_regulator(int8_t power[], int8_t x, int8_t y, int8_t w, int8_t z, RovData& rov_data)
-{
-	z = m_roll_reg.apply(rov_data.m_roll_to_set, rov_data.m_roll);
-	power[0] = constrain(y - x + w, -100, 100);
-	power[1] = constrain(y + x - w, -100, 100);
-	power[2] = constrain(y - x - w, -100, 100);
-	power[3] = constrain(y + x + w, -100, 100);
-	power[4] = constrain(-z, -100, 100);
-	power[5] = constrain(z, -100, 100);
-	power[6] = constrain(-z, -100, 100);
-	power[7] = constrain(z, -100, 100);
-}
-
-void ThrustersSubSystem::depth_regulator(int8_t power[], int8_t x, int8_t y, int8_t w, int8_t z, RovData& rov_data)
-{
-	z = m_depth_reg.apply(rov_data.m_depth_to_set, rov_data.m_depth);
-	power[0] = constrain(y - x + w, -100, 100);
-	power[1] = constrain(y + x - w, -100, 100);
-	power[2] = constrain(y - x - w, -100, 100);
-	power[3] = constrain(y + x + w, -100, 100);
 	power[4] = constrain(z, -100, 100);
 	power[5] = constrain(z, -100, 100);
 	power[6] = constrain(z, -100, 100);

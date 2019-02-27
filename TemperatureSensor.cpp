@@ -1,8 +1,14 @@
 #include"TemperatureSensor.h"
 
-TemperatureSensor::TemperatureSensor()
-{
+TemperatureSensor::TemperatureSensor() : m_wire(TEMPERATURE_SENSOR) {}
 
+void TemperatureSensor::init()
+{
+}
+
+void TemperatureSensor::read(RovData& rov_data)
+{
+	rov_data.m_temperature = getTemperature();
 }
 
 float TemperatureSensor::getTemperature()

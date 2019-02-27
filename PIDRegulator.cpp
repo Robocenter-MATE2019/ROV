@@ -27,21 +27,13 @@ int PIDRegulator::apply(float to_set, float current)
 	float time_elaplsed = (m_timer.elapsed() / 1000.00) < 0.0000001 ?  0.000001 : m_timer.elapsed() / 1000.00;
 
 	m_timer.stop();
-
 	float error = to_set - current;
-
 	m_integral = constrain(error * time_elaplsed + m_integral, -100, 100);
-
 	proportional_part = m_pK * error;
-
 	integral_part = m_iK * m_integral;
-
 	differential_part = m_dK * (error - m_error_old) / time_elaplsed;
-
 	result = proportional_part + integral_part + differential_part;
-
 	m_error_old = error;
-
 	m_timer.start();
 	result = constrain(result, -100, 100);
 	return result;

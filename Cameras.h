@@ -5,8 +5,6 @@
 #include "RovData.h"
 #include "Output.h"
 
-
-
 class Cameras : public Output
 {
 public:

@@ -4,6 +4,8 @@
  Author:	Виталий
 */
 
+#include <Servo.h>
+#include <OneWire.h>
 #include <SPI.h>
 #include <Ethernet.h>
 #include <Arduino.h>
