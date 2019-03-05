@@ -4,6 +4,7 @@
  Author:	Виталий
 */
 
+#include <Wire.h>
 #include <Servo.h>
 #include <OneWire.h>
 #include <SPI.h>

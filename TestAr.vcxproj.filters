@@ -96,6 +96,15 @@
     <ClInclude Include="TemperatureSensor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SparkFun_MS5803_I2C.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthSensor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="IMU.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RotaryCamera.cpp">
@@ -150,6 +159,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="TemperatureSensor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SparkFun_MS5803_I2C.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DepthSensor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="IMU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

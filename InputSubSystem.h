@@ -6,6 +6,8 @@
 #include "Config.h"
 #include "ROV_MACROS.h"
 #include "TemperatureSensor.h"
+#include "DepthSensor.h"
+#include "IMU.h"
 
 class InputSubSystem :public SubSystem
 {

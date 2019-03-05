@@ -6,9 +6,13 @@ InputSubSystem::InputSubSystem()
 {
 	int i = 0;
 #if TEMPERATURE_SENSOR_ENABLE
-	
+	m_devices[i++] = new TemperatureSensor;
 #endif
-#if DnT_ENABLE
+#if DEPTH_SENSOR_ENABLE
+	m_devices[i++] = new DepthSensor;
+#endif
+#if IMU_ENABLE
+	m_devices[i++] = new IMU;
 #endif
 }
 

@@ -4,11 +4,13 @@ TemperatureSensor::TemperatureSensor() : m_wire(TEMPERATURE_SENSOR) {}
 
 void TemperatureSensor::init()
 {
+	DEVICESPRINT("TenperatureSensor.init()");
 }
 
 void TemperatureSensor::read(RovData& rov_data)
 {
 	rov_data.m_temperature = getTemperature();
+	DEVICESPRINT("TenperatureSensor.read()");
 }
 
 float TemperatureSensor::getTemperature()
