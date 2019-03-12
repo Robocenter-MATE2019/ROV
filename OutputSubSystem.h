@@ -8,6 +8,7 @@
 #include "Helix.h"
 #include "Coiler.h"
 #include "ROV_MACROS.h"
+#include "Electromagnet.h"
 
 class OutputSubSystem :public SubSystem
 {

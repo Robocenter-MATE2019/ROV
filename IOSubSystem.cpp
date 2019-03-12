@@ -5,7 +5,7 @@ IOSubSystem::IOSubSystem()
 {
 	int i = 0;
 #if UDP_ENABLE
-	m_devices[i++] = new UDPConnection();
+	m_devices[i++] = new UDPConnection;
 #endif
 }
 void IOSubSystem::init()

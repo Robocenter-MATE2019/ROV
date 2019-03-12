@@ -6,19 +6,22 @@
 {
 	int i = 0;
 #if MANIPULATOR_ENABLE
-	m_devices[i++] = new ROVBuilderManipulator();
+	m_devices[i++] = new ROVBuilderManipulator;
 #endif
 #if THRUSTERSSUBSYSTEM_ENABLE
-	m_devices[i++] = new ThrustersSubSystem();
+	m_devices[i++] = new ThrustersSubSystem;
 #endif
 #if ROTARYCAMERA_ENABLE
-	m_devices[i++] = new Cameras();
+	m_devices[i++] = new Cameras;
 #endif
 #if COILER_ENABLE
-	m_devices[i++] = new Coiler();
+	m_devices[i++] = new Coiler;
 #endif 
 #if HELIX_ENABLE
-	m_devices[i++] = new Helix();
+	m_devices[i++] = new Helix;
+#endif
+#if ELECTROMAGNET_ENABLE
+	m_devices[i++] = new Electromagnet;
 #endif
 }
 

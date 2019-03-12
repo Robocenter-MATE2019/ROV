@@ -8,6 +8,7 @@
 #include "TemperatureSensor.h"
 #include "DepthSensor.h"
 #include "IMU.h"
+#include "MetalDetector.h"
 
 class InputSubSystem :public SubSystem
 {

@@ -14,6 +14,10 @@ InputSubSystem::InputSubSystem()
 #if IMU_ENABLE
 	m_devices[i++] = new IMU;
 #endif
+#if METALDETECTOR_ENABLE
+	m_devices[i++] = new MetalDetector;
+#endif
+
 }
 
 void InputSubSystem::init()

@@ -24,4 +24,10 @@ struct RovData
 	float m_roll_to_set;
 	float m_pitch_to_set;
 	float m_depth_to_set;
+
+	int8_t m_right_helix;
+	int8_t m_left_helix;
+	int8_t m_coiler;
+	bool m_is_core;
+	uint8_t m_electromagnet;
 };
