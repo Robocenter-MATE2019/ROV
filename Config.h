@@ -17,14 +17,16 @@
 #define THRUSTERSSUBSYSTEM_ENABLE			1
 #define ROTARYCAMERA_ENABLE					1
 
+#define COILER_ENABLE						1
+#define HELIX_ENABLE						1
+
 #define TEMPERATURE_SENSOR_ENABLE			1
 #define DEPTH_SENSOR_ENABLE					1
 #define IMU_ENABLE							1
-//#define DnT_ENABLE							0
 
 #define UDP_ENABLE							0
 
-constexpr int SIZE_OUTPUT_DEVICES = MANIPULATOR_ENABLE + THRUSTERSSUBSYSTEM_ENABLE + ROTARYCAMERA_ENABLE;
+constexpr int SIZE_OUTPUT_DEVICES = MANIPULATOR_ENABLE + THRUSTERSSUBSYSTEM_ENABLE + ROTARYCAMERA_ENABLE + COILER_ENABLE + HELIX_ENABLE;
 constexpr int SIZE_INPUT_DEVICES =  IMU_ENABLE + DEPTH_SENSOR_ENABLE + IMU_ENABLE;
 constexpr int SIZE_IO_DEVICES =     UDP_ENABLE;
 
@@ -98,3 +100,27 @@ constexpr int TEMPERATURE_SENSOR =			2;
 /////////////////////////////////////////////////
 
 //constexpr int DEPTH_SENSOR =					10;
+
+//////////////////PayLoads///////////////////////
+
+constexpr int COIL_MOTOR_LEFT_PIN =				99;
+constexpr int COIL_MOTOR_RIGHT_PIN =			88;
+
+constexpr int RIGHT_HELIX_MOTOR_LEFT_PIN =		77;
+constexpr int RIGHT_HELIX_MOTOR_RIGHT_PIN =		66;
+
+constexpr int LEFT_HELIX_MOTOR_LEFT_PIN =		55;
+constexpr int LEFT_HELIX_MOTOR_RIGHT_PIN =		44;
+
+/////////////////////////////////////////////////
+////////////////////Buttons//////////////////////
+/////////////////////////////////////////////////
+
+constexpr int RIGHT_HELIX_BUTTON =				2;
+constexpr int LEFT_HELIX_BUTTON =				3;
+
+constexpr int COILER_TWIST_BUTTON =				8;
+constexpr int COILER_UNTWIST_BUTTON =			9;
+
+/////////////////////////////////////////////////
+
