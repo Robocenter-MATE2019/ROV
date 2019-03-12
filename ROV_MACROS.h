@@ -5,6 +5,7 @@
 //#define ROVDATA
 //#define SUBSYSTEMSTEST
 //#define DEVICESTEST
+#define DATAINFO
 
 #ifdef SUBSYSTEMSTEST					
 #define SERIALENABLE			
@@ -46,4 +47,23 @@
 
 #else 
 #define DEVICESPRINT(str)
+#endif
+
+
+#ifdef DATAINFO
+#define SERIALENABLE
+#define ROVDATAPRINT					\
+Serial.print("rov_data.temperature = ");\
+Serial.println(m_rov_data.m_temperature);		\
+Serial.print("rov_data.depth = ");\
+Serial.println(m_rov_data.m_depth);		\
+Serial.print("rov_data.yaw = ");		\
+Serial.println(m_rov_data.m_yaw);				\
+Serial.print("rov_data.pitch = ");		\
+Serial.println(m_rov_data.m_pitch);			\
+Serial.print("rov_data.roll = ");		\
+Serial.println(m_rov_data.m_roll);			\
+
+#else
+#define ROVDATAPRINT
 #endif

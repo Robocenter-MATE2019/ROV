@@ -6,6 +6,7 @@ DepthSensor::DepthSensor() : m_ms5803(ADDRESS_LOW)
 
 void DepthSensor::init()
 {
+	m_ms5803.reset();
 	m_ms5803.begin();
 	DEVICESPRINT("DepthSensor.init()");
 }

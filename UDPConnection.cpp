@@ -101,14 +101,10 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 void UDPConnection::write(RovData& rov_data)
 {
 	OutputPacket packet;
-	//packet.yaw = rov_data.m_yaw;
-	//packet.depth = rov_data.m_depth;
-	//packet.roll = rov_data.m_roll;
-	//packet.temp = rov_data.m_temperature;
-	packet.yaw = 90;
-	packet.depth = 79;
-	packet.roll = 10;
-	packet.temp = 10;
+	packet.yaw = rov_data.m_yaw;
+	packet.depth = rov_data.m_depth;
+	packet.roll = rov_data.m_roll;
+	packet.temp = rov_data.m_temperature;
 	sendPacket(packet);
 	DEVICESPRINT("UDPConnection.write()");
 }

@@ -22,7 +22,7 @@
 #define IMU_ENABLE							1
 //#define DnT_ENABLE							0
 
-#define UDP_ENABLE							1
+#define UDP_ENABLE							0
 
 constexpr int SIZE_OUTPUT_DEVICES = MANIPULATOR_ENABLE + THRUSTERSSUBSYSTEM_ENABLE + ROTARYCAMERA_ENABLE;
 constexpr int SIZE_INPUT_DEVICES =  IMU_ENABLE + DEPTH_SENSOR_ENABLE + IMU_ENABLE;
@@ -85,7 +85,7 @@ constexpr int REMOTE_PORT =					5000;
 //////////////Temperature////////////////////////
 /////////////////////////////////////////////////
 
-constexpr int TEMPERATURE_SENSOR =			9;
+constexpr int TEMPERATURE_SENSOR =			2;
 
 /////////////////////////////////////////////////
 ////////////////////IMU//////////////////////////

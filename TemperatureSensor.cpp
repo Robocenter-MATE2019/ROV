@@ -4,6 +4,7 @@ TemperatureSensor::TemperatureSensor() : m_wire(TEMPERATURE_SENSOR) {}
 
 void TemperatureSensor::init()
 {
+
 	DEVICESPRINT("TenperatureSensor.init()");
 }
 

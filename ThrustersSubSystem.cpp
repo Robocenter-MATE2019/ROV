@@ -40,11 +40,11 @@ void ThrustersSubSystem::set_power(int8_t x, int8_t y, int8_t w, int8_t z, uint8
 	int8_t power[THRUSTER_SIZE];
 	if (rov_data.m_axis_z != 0)
 	{
-		//rov_data.m_depth_to_set = ...getDepth();
+		rov_data.m_depth_to_set = rov_data.m_depth;
 	}
 	if (rov_data.m_axis_w != 0)
 	{
-		//rov_data.m_yaw_to_set = ...getYaw();
+		rov_data.m_yaw_to_set = rov_data.m_yaw;
 	}
 	manual_regulator(power, x, y, w, z);
 	if(regulator_type & 0x1)

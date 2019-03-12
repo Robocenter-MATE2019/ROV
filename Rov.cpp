@@ -32,6 +32,7 @@ void Rov::run()
 	for (int i = 0; i < SUBSYSTEM_SIZE; i++)
 	{
 		m_subsystem[i]->apply(m_rov_data);
+		ROVDATAPRINT;
 	}
 }
 
