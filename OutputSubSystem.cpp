@@ -14,6 +14,12 @@
 #if ROTARYCAMERA_ENABLE
 	m_devices[i++] = new Cameras();
 #endif
+#if COILER_ENABLE
+	m_devices[i++] = new Coiler();
+#endif 
+#if HELIX_ENABLE
+	m_devices[i++] = new Helix();
+#endif
 }
 
 void OutputSubSystem::init()
