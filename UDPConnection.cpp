@@ -93,7 +93,15 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 	rov_data.m_manipulator_rotate = packet.manipulator_rotate;
 	/////////////////////////////////
 
-	//PRINTROVDATA(1000);
+	if (actionState[RIGHT_HELIX_BUTTON] == 1) rov_data.m_right_helix = 1;
+	else if (actionState[RIGHT_HELIX_BUTTON] == 0) rov_data.m_right_helix = 0;
+
+	if (actionState[LEFT_HELIX_BUTTON] == 1) rov_data.m_left_helix = 1;
+	else if (actionState[LEFT_HELIX_BUTTON] == 0) rov_data.m_left_helix = 0;
+
+	if (actionState[COILER_TWIST_BUTTON] == 1) rov_data.m_coiler = 1;
+	else if (actionState[COILER_UNTWIST_BUTTON] == 0) rov_data.m_coiler = -1;
+	else rov_data.m_coiler = -1;
 
 	return true;
 }
