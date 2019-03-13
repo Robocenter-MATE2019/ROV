@@ -1,6 +1,12 @@
 # ROV
 
 
+Version 1.0.2 (13.03.2019)
+
+- Теперь используется Ethernet Shield на базе чипа W5500
+- Ethernet Shield конфликтует с IMU Shield
+
+
 Version 1.0.1 (12.03.2019)
 
 - Добавлен класс электромагнита (Electromagnet)
