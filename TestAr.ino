@@ -8,7 +8,6 @@
 #include <Servo.h>
 #include <OneWire.h>
 #include <SPI.h>
-#include <Ethernet.h>
 #include <Arduino.h>
 #include "Rov.h"
 #include "Timer.h"

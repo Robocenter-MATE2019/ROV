@@ -9,7 +9,7 @@ UDPConnection::UDPConnection() :
 
 void UDPConnection::init()
 {
-	Ethernet.init(10);
+	//Ethernet.init(10);
 	Ethernet.begin(m_mac, m_self_ip);
 	m_udp.begin(m_self_port);
 	delay(100);
@@ -35,7 +35,7 @@ void UDPConnection::sendPacket(const OutputPacket& packet)
 {
 	if (m_timer.elapsed() > 250)
 	{
-		m_udp.beginPacket(m_udp.remoteIP(), m_udp.remotePort());
+		m_udp.beginPacket(m_remote_ip, m_remote_port);
 		m_udp.write((byte*)&packet, sizeof(packet));
 		m_udp.endPacket();
 		m_timer.start();

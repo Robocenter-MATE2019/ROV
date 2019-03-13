@@ -1,6 +1,7 @@
 #pragma once
 
-#include <Ethernet.h>
+#include <Ethernet_W5500.h>
+#include <EthernetUDP.h>
 #include <SPI.h>
 #include "Timer.h"
 #include "Config.h"
