@@ -5,6 +5,7 @@
 #include "Config.h"
 #include "Input.h"
 #include "RovData.h"
+#include "ROV_MACROS.h"
 
 class TemperatureSensor : public Input
 {
@@ -17,4 +18,7 @@ private:
 	OneWire m_wire;
 	Timer m_timer;
 	float result = -1;
+#ifdef TIMERS
+	Timer m_timer;
+#endif 
 };

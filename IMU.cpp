@@ -100,6 +100,14 @@ void IMU::read(RovData & rov_data)
 		rov_data.m_yaw = Eular[2];
 	}
 	DEVICESPRINT("IMU.read()");
+	if (m_timer.elapsed() > 1000)
+	{
+		Serial.println(__FILE__);
+		Serial.print("LAG!!! time = ");
+		Serial.println(m_timer.elapsed());
+		delay(10000000000000000);
+	}
+	m_timer.start();
 }
 
 

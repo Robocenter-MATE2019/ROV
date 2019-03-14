@@ -115,10 +115,26 @@ void UDPConnection::write(RovData& rov_data)
 	packet.temp = rov_data.m_temperature;
 	sendPacket(packet);
 	DEVICESPRINT("UDPConnection.write()");
+	if (m_timer1.elapsed() > 1000)
+	{
+		Serial.println(__FILE__);
+		Serial.print("LAG!!! time = ");
+		Serial.println(m_timer1.elapsed());
+		delay(10000000000000000);
+	}
+	m_timer1.start();
 }
 
 void UDPConnection::read(RovData& rov_data)
 {
 	receivePacket(rov_data);
 	DEVICESPRINT("UDPConnection.read()");
+	if (m_timer1.elapsed() > 1000)
+	{
+		Serial.println(__FILE__);
+		Serial.print("LAG!!! time = ");
+		Serial.println(m_timer1.elapsed());
+		delay(10000000000000000);
+	}
+	m_timer1.start();
 }

@@ -5,6 +5,7 @@
 //#define ROVDATA
 //#define SUBSYSTEMSTEST
 //#define DEVICESTEST
+#define TIMERS
 #define DATAINFO
 
 #ifdef SUBSYSTEMSTEST					

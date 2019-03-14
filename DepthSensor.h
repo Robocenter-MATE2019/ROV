@@ -4,6 +4,7 @@
 #include "Input.h"
 #include "Config.h"
 #include "RovData.h"
+#include "ROV_MACROS.h"
 
 class DepthSensor : public Input
 {
@@ -13,4 +14,7 @@ public:
 	void read(RovData& rov_data);
 private:
 	MS5803 m_ms5803;
+#ifdef TIMERS
+	Timer m_timer;
+#endif 
 };

@@ -5,6 +5,8 @@
 #include "RovData.h"
 #include <stdlib.h>
 #include <string.h>
+#include "Timer.h"
+#include "ROV_MACROS.h"
 
 
 class IMU : public Input
@@ -66,6 +68,10 @@ private:
 	static void crc16_update(uint16_t *currectCrc, const uint8_t *src, uint32_t lengthInBytes);
     uint32_t Packet_Decode(uint8_t c);
 	void DispData(Packet_t *pkt);
+#ifdef TIMERS
+	Timer m_timer;
+#endif 
+
 };
 
 
