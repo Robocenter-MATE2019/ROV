@@ -92,16 +92,18 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 	else rov_data.m_manipulator_grab = 0;
 	rov_data.m_manipulator_rotate = packet.manipulator_rotate;
 	/////////////////////////////////
+	//rov_data.m_right_helix = 1;
+	//rov_data.m_left_helix = 1;
+	//rov_data.m_coiler = 1;
+	if (actionState[0] == 1) rov_data.m_right_helix = 1;
+	else rov_data.m_right_helix = 0;
 
-	if (actionState[RIGHT_HELIX_BUTTON] == 1) rov_data.m_right_helix = 1;
-	else if (actionState[RIGHT_HELIX_BUTTON] == 0) rov_data.m_right_helix = 0;
+	if (actionState[0] == 1) rov_data.m_left_helix = 1;
+	else rov_data.m_left_helix = 0;
 
-	if (actionState[LEFT_HELIX_BUTTON] == 1) rov_data.m_left_helix = 1;
-	else if (actionState[LEFT_HELIX_BUTTON] == 0) rov_data.m_left_helix = 0;
-
-	if (actionState[COILER_TWIST_BUTTON] == 1) rov_data.m_coiler = 1;
-	else if (actionState[COILER_UNTWIST_BUTTON] == 0) rov_data.m_coiler = -1;
-	else rov_data.m_coiler = -1;
+	if (actionState[1] == 1) rov_data.m_coiler = 1;
+	else if (actionState[0] == 1) rov_data.m_coiler = -1;
+	else rov_data.m_coiler = 0;
 
 	return true;
 }
@@ -112,29 +114,36 @@ void UDPConnection::write(RovData& rov_data)
 	packet.yaw = rov_data.m_yaw;
 	packet.depth = rov_data.m_depth;
 	packet.roll = rov_data.m_roll;
-	packet.temp = rov_data.m_temperature;
+	packet.pitch = rov_data.m_pitch;
+	packet.temperature = rov_data.m_temperature;
 	sendPacket(packet);
 	DEVICESPRINT("UDPConnection.write()");
-	if (m_timer1.elapsed() > 1000)
+#ifdef TIMERS
+	if (timer_write_macros.elapsed() > 1000)
 	{
 		Serial.println(__FILE__);
+		Serial.println(__LINE__);
 		Serial.print("LAG!!! time = ");
-		Serial.println(m_timer1.elapsed());
+		Serial.println(timer_write_macros.elapsed());
 		delay(10000000000000000);
 	}
-	m_timer1.start();
+	timer_write_macros.start();
+#endif
 }
 
 void UDPConnection::read(RovData& rov_data)
 {
 	receivePacket(rov_data);
 	DEVICESPRINT("UDPConnection.read()");
-	if (m_timer1.elapsed() > 1000)
+#ifdef TIMERS
+	if (timer_read_macros.elapsed() > 1000)
 	{
 		Serial.println(__FILE__);
+		Serial.println(__LINE__);
 		Serial.print("LAG!!! time = ");
-		Serial.println(m_timer1.elapsed());
+		Serial.println(timer_read_macros.elapsed());
 		delay(10000000000000000);
 	}
-	m_timer1.start();
+	timer_read_macros.start();
+#endif
 }

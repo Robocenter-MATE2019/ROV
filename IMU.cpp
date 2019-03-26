@@ -91,7 +91,7 @@ uint32_t IMU::Packet_Decode(uint8_t c)
 
 void IMU::read(RovData & rov_data)
 {
-	if (Serial3.available())
+	while (Serial3.available())
 	{
 		uint8_t ch = Serial3.read();
 		Packet_Decode(ch);
@@ -100,14 +100,16 @@ void IMU::read(RovData & rov_data)
 		rov_data.m_yaw = Eular[2];
 	}
 	DEVICESPRINT("IMU.read()");
-	if (m_timer.elapsed() > 1000)
+#ifdef TIMERS
+	if (timer_macros.elapsed() > 1000)
 	{
 		Serial.println(__FILE__);
 		Serial.print("LAG!!! time = ");
-		Serial.println(m_timer.elapsed());
+		Serial.println(timer_macros.elapsed());
 		delay(10000000000000000);
 	}
-	m_timer.start();
+	timer_macros.start();
+#endif
 }
 
 
@@ -144,17 +146,5 @@ void IMU::DispData(Packet_t * pkt)
 		Eular[1] = ((float)(int16_t)(pkt->buf[26] + (pkt->buf[27] << 8))) / 100;
 		Eular[2] = ((float)(int16_t)(pkt->buf[28] + (pkt->buf[29] << 8))) / 10;
 	}
-
-	/*Serial.print("Pitch:");
-	Serial.print(Eular[0]);
-	Serial.print("  ");
-	Serial.print("Roll:");
-	Serial.print(Eular[1]);
-	Serial.print("  ");
-
-	Serial.print("Yaw:");
-	Serial.print(Eular[2]);
-	Serial.print("  ");
-	Serial.print("\r\n");*/
 }
 

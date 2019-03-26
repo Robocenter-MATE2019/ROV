@@ -10,8 +10,8 @@
 
 struct InputPacket
 {
-	signed char button_data1;
-	signed char button_data2;
+	signed char button_data1 = 0;
+	signed char button_data2 = 0;
 	int8_t axisX_p = 0; //! -100/100;    
 	int8_t axisY_p = 0; //! -100/100;    
 	int8_t axisZ_p = 0; //! -100/100;    
@@ -23,9 +23,10 @@ struct InputPacket
 struct OutputPacket
 {
 	float yaw = 0;
-	float temp = 0;
 	float roll = 0;
+	float pitch = 0;
 	float depth = 0;
+	float temperature = 0;
 };
 
 class UDPConnection : public InputOutput
@@ -47,6 +48,7 @@ private:
 	byte m_mac[6] = { MAC };
 	Timer m_timer;
 #ifdef TIMERS
-	Timer m_timer1;
+	Timer timer_read_macros;
+	Timer timer_write_macros;
 #endif
 };

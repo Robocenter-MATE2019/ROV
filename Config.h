@@ -14,7 +14,7 @@
 #define IOSUBSYSTEM_ENABLE					1
 
 #define MANIPULATOR_ENABLE					0
-#define THRUSTERSSUBSYSTEM_ENABLE			0
+#define THRUSTERSSUBSYSTEM_ENABLE			1
 #define ROTARYCAMERA_ENABLE					0
 
 #define COILER_ENABLE						0
@@ -22,9 +22,9 @@
 #define METALDETECTOR_ENABLE				0
 #define ELECTROMAGNET_ENABLE				0
 
-#define TEMPERATURE_SENSOR_ENABLE			1
-#define DEPTH_SENSOR_ENABLE					1
-#define IMU_ENABLE							0
+#define TEMPERATURE_SENSOR_ENABLE			0
+#define DEPTH_SENSOR_ENABLE					0
+#define IMU_ENABLE							1
 
 #define UDP_ENABLE							1
 
@@ -92,27 +92,17 @@ constexpr int REMOTE_PORT =					5000;
 constexpr int TEMPERATURE_SENSOR =			2;
 
 /////////////////////////////////////////////////
-////////////////////IMU//////////////////////////
-/////////////////////////////////////////////////
-
-//constexpr int IMU_SENSOR =					10;
-
-/////////////////////////////////////////////////
-////////////////////Depth////////////////////////
-/////////////////////////////////////////////////
-
-//constexpr int DEPTH_SENSOR =					10;
-
 //////////////////PayLoads///////////////////////
+/////////////////////////////////////////////////
 
-constexpr int COIL_MOTOR_LEFT_PIN =				99;
-constexpr int COIL_MOTOR_RIGHT_PIN =			88;
+constexpr int COIL_MOTOR_LEFT_PIN =				22;
+constexpr int COIL_MOTOR_RIGHT_PIN =			24;
 
-constexpr int RIGHT_HELIX_MOTOR_LEFT_PIN =		77;
-constexpr int RIGHT_HELIX_MOTOR_RIGHT_PIN =		66;
+constexpr int RIGHT_HELIX_MOTOR_LEFT_PIN =		28;
+constexpr int RIGHT_HELIX_MOTOR_RIGHT_PIN =		30;
 
-constexpr int LEFT_HELIX_MOTOR_LEFT_PIN =		55;
-constexpr int LEFT_HELIX_MOTOR_RIGHT_PIN =		44;
+constexpr int LEFT_HELIX_MOTOR_LEFT_PIN =		34;
+constexpr int LEFT_HELIX_MOTOR_RIGHT_PIN =		36;
 
 #define METALDETECTOR_PIN						A1
 #define ELECTROMAGNET_PIN						A2

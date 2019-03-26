@@ -6,7 +6,7 @@
 //#define SUBSYSTEMSTEST
 //#define DEVICESTEST
 #define TIMERS
-#define DATAINFO
+//#define DATAINFO
 
 #ifdef SUBSYSTEMSTEST					
 #define SERIALENABLE			

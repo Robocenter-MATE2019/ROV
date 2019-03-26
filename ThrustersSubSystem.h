@@ -5,6 +5,7 @@
 #include "RovData.h"
 #include "Output.h"
 #include "PIDRegulator.h"
+#include "Timer.h"
 
 class ThrustersSubSystem : public Output
 {
@@ -20,4 +21,7 @@ private:
 	PIDRegulator m_pitch_reg;
 	PIDRegulator m_roll_reg;
 	PIDRegulator m_yaw_reg;
+#ifdef  TIMERS
+	Timer timer_macros;
+#endif 
 };

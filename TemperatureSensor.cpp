@@ -9,19 +9,21 @@ void TemperatureSensor::init()
 
 void TemperatureSensor::read(RovData& rov_data)
 {
-	rov_data.m_temperature = getTemperature();
+	getTemperature(rov_data);
 	DEVICESPRINT("TenperatureSensor.read()");
-	if (m_timer.elapsed() > 1000)
+#ifdef TIMERS
+	if (timer_macros.elapsed() > 1000)
 	{
 		Serial.println(__FILE__);
 		Serial.print("LAG!!! time = ");
-		Serial.println(m_timer.elapsed());
+		Serial.println(timer_macros.elapsed());
 		delay(10000000000000000);
 	}
-	m_timer.start();
+	timer_macros.start();
+#endif
 }
 
-float TemperatureSensor::getTemperature()
+float TemperatureSensor::getTemperature(RovData& rov_data)
 {
 	byte i;
 	byte present = 0;
@@ -30,10 +32,12 @@ float TemperatureSensor::getTemperature()
 	byte addr[8];
 	if (!m_wire.search(addr)) {
 		m_wire.reset_search();
-		return result;
+		rov_data.m_temperature = m_result;
+		return m_result;
 	}
 	if (OneWire::crc8(addr, 7) != addr[7]) {
-		return result;
+		rov_data.m_temperature = m_result;
+		return m_result;
 	}
 	m_wire.reset();
 	m_wire.select(addr);
@@ -64,8 +68,9 @@ float TemperatureSensor::getTemperature()
 			else if (cfg == 0x20) raw = raw & ~3;
 			else if (cfg == 0x40) raw = raw & ~1;
 		}
-		result = (float)raw / 16.0;
+		if((float)raw / 16.0 > 0) m_result = (float)raw / 16.0;
 		m_timer.stop();
-		return result;
+		rov_data.m_temperature = m_result;
+		return m_result;
 	}
 }

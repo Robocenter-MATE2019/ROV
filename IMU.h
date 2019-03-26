@@ -69,7 +69,7 @@ private:
     uint32_t Packet_Decode(uint8_t c);
 	void DispData(Packet_t *pkt);
 #ifdef TIMERS
-	Timer m_timer;
+	Timer timer_macros;
 #endif 
 
 };

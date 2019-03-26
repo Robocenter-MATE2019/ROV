@@ -4,6 +4,7 @@
 #include "Config.h"
 #include "RovData.h"
 #include "Output.h"
+#include "Timer.h"
 
 class ROVBuilderManipulator : public Output
 {
@@ -15,5 +16,9 @@ public:
 private:
 	LevelMotor m_release_level_motor;
 	LevelMotor m_rotate_level_motor;
+#ifdef TIMERS
+	Timer timer_macros;
+#endif
+
 };
 

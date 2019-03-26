@@ -23,4 +23,15 @@ void ROVBuilderManipulator::write(RovData& rov_data)
 {
 	set_power(rov_data.m_manipulator_grab, rov_data.m_manipulator_rotate);
 	DEVICESPRINT("ROVBuilderManipulator.write()");
+#ifdef TIMERS
+	if (timer_macros.elapsed() > 1000)
+	{
+		Serial.println(__FILE__);
+		Serial.println(__LINE__);
+		Serial.print("LAG!!! time = ");
+		Serial.println(timer_macros.elapsed());
+		delay(10000000000000000);
+	}
+	timer_macros.start();
+#endif
 }

@@ -98,4 +98,15 @@ void ThrustersSubSystem::write(RovData& rov_data)
 {
 	set_power(rov_data.m_axis_x, rov_data.m_axis_y, rov_data.m_axis_w, rov_data.m_axis_z, rov_data.m_regulator_type, rov_data);
 	DEVICESPRINT("ThrustersSubSystem.write()");
+#ifdef TIMERS
+	if (timer_macros.elapsed() > 1000)
+	{
+		Serial.println(__FILE__);
+		Serial.println(__LINE__);
+		Serial.print("LAG!!! time = ");
+		Serial.println(timer_macros.elapsed());
+		delay(10000000000000000);
+	}
+	timer_macros.start();
+#endif
 }

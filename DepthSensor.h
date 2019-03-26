@@ -15,6 +15,6 @@ public:
 private:
 	MS5803 m_ms5803;
 #ifdef TIMERS
-	Timer m_timer;
+	Timer timer_macros;
 #endif 
 };
