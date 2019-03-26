@@ -9,7 +9,6 @@ UDPConnection::UDPConnection() :
 
 void UDPConnection::init()
 {
-	//Ethernet.init(10);
 	Ethernet.begin(m_mac, m_self_ip);
 	m_udp.begin(m_self_port);
 	delay(100);
@@ -92,9 +91,7 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 	else rov_data.m_manipulator_grab = 0;
 	rov_data.m_manipulator_rotate = packet.manipulator_rotate;
 	/////////////////////////////////
-	//rov_data.m_right_helix = 1;
-	//rov_data.m_left_helix = 1;
-	//rov_data.m_coiler = 1;
+
 	if (actionState[0] == 1) rov_data.m_right_helix = 1;
 	else rov_data.m_right_helix = 0;
 
