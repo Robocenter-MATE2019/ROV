@@ -29,9 +29,9 @@ void IMU::crc16_update(uint16_t * currectCrc, const uint8_t * src, uint32_t leng
 
 uint32_t IMU::Packet_Decode(uint8_t c)
 {
-	static uint16_t CRCReceived = 0; /* CRC value received from a frame */
-	static uint16_t CRCCalculated = 0;  /* CRC value caluated from a frame */
-	static uint8_t status = kStatus_Idle; /* state machine */
+	static uint16_t CRCReceived = 0;
+	static uint16_t CRCCalculated = 0;
+	static uint8_t status = kStatus_Idle;
 	static uint8_t crc_header[4] = { 0x5A, 0xA5, 0x00, 0x00 };
 
 	switch (status)
@@ -68,14 +68,11 @@ uint32_t IMU::Packet_Decode(uint8_t c)
 		RxPkt.buf[RxPkt.ofs++] = c;
 		if (RxPkt.ofs >= RxPkt.payload_len)
 		{
-			/* calculate CRC */
 			crc16_update(&CRCCalculated, crc_header, 4);
 			crc16_update(&CRCCalculated, RxPkt.buf, RxPkt.ofs);
 
-			/* CRC match */
 			if (CRCCalculated == CRCReceived)
 			{
-				/* ?????????????? */
 				DispData(&RxPkt);
 			}
 			status = kStatus_Idle;
@@ -122,25 +119,25 @@ void IMU::init()
 void IMU::DispData(Packet_t * pkt)
 {
 
-	if (pkt->buf[0] == kItemID) /* user ID */
+	if (pkt->buf[0] == kItemID)
 	{
 		ID = pkt->buf[1];
 	}
-	if (pkt->buf[2] == kItemAccRaw)  /* Acc raw value */
+	if (pkt->buf[2] == kItemAccRaw)
 	{
 		memcpy(AccRaw, (void*)pkt->buf[3], 6);
 	}
 
-	if (pkt->buf[9] == kItemGyoRaw)  /* gyro raw value */
+	if (pkt->buf[9] == kItemGyoRaw)
 	{
 		memcpy(GyoRaw, (void*)pkt->buf[10], 6);
 	}
 
-	if (pkt->buf[16] == kItemMagRaw)  /* mag raw value */
+	if (pkt->buf[16] == kItemMagRaw)
 	{
 		memcpy(MagRaw, (void*)pkt->buf[17], 6);
 	}
-	if (pkt->buf[23] == kItemAtdE)  /* atd E */
+	if (pkt->buf[23] == kItemAtdE)
 	{
 		Eular[0] = ((float)(int16_t)(pkt->buf[24] + (pkt->buf[25] << 8))) / 100;
 		Eular[1] = ((float)(int16_t)(pkt->buf[26] + (pkt->buf[27] << 8))) / 100;
