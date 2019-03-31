@@ -12,6 +12,6 @@ void MetalDetector::init()
 
 void MetalDetector::read(RovData& rov_data)
 {
-	if (analogRead(m_pin) > 512) rov_data.m_is_core = true;
+	if (analogRead(m_pin) > 900) rov_data.m_is_core = true;
 	else rov_data.m_is_core = false;
 }
