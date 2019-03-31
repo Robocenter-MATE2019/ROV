@@ -68,7 +68,7 @@ private:
 	static void crc16_update(uint16_t *currectCrc, const uint8_t *src, uint32_t lengthInBytes);
     uint32_t Packet_Decode(uint8_t c);
 	void DispData(Packet_t *pkt);
-#ifdef TIMERS
+#ifdef TIME_DEBUG
 	Timer timer_macros;
 #endif 
 

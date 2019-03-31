@@ -5,8 +5,20 @@
 //#define ROVDATA
 //#define SUBSYSTEMSTEST
 //#define DEVICESTEST
-#define TIMERS
+#define TIME_DEBUG
 //#define DATAINFO
+
+#ifdef TIME_DEBUG
+#define TIME_DEBUGER(timer)						\
+if (timer.elapsed() > 1000)						\
+{												\
+	Serial.println(__FILE__);					\
+	Serial.print("LAG!!! time = ");				\
+	Serial.println(timer.elapsed());			\
+	delay(10000000000000000);					\
+}												\
+timer.start();							
+#endif
 
 #ifdef SUBSYSTEMSTEST					
 #define SERIALENABLE			

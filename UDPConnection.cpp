@@ -115,32 +115,12 @@ void UDPConnection::write(RovData& rov_data)
 	packet.temperature = rov_data.m_temperature;
 	sendPacket(packet);
 	DEVICESPRINT("UDPConnection.write()");
-#ifdef TIMERS
-	if (timer_write_macros.elapsed() > 1000)
-	{
-		Serial.println(__FILE__);
-		Serial.println(__LINE__);
-		Serial.print("LAG!!! time = ");
-		Serial.println(timer_write_macros.elapsed());
-		delay(10000000000000000);
-	}
-	timer_write_macros.start();
-#endif
+	TIME_DEBUGER(timer_read_macros);
 }
 
 void UDPConnection::read(RovData& rov_data)
 {
 	receivePacket(rov_data);
 	DEVICESPRINT("UDPConnection.read()");
-#ifdef TIMERS
-	if (timer_read_macros.elapsed() > 1000)
-	{
-		Serial.println(__FILE__);
-		Serial.println(__LINE__);
-		Serial.print("LAG!!! time = ");
-		Serial.println(timer_read_macros.elapsed());
-		delay(10000000000000000);
-	}
-	timer_read_macros.start();
-#endif
+	TIME_DEBUGER(timer_write_macros);
 }

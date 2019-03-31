@@ -16,7 +16,7 @@ public:
 private:
 	LevelMotor m_release_level_motor;
 	LevelMotor m_rotate_level_motor;
-#ifdef TIMERS
+#ifdef TIME_DEBUG
 	Timer timer_macros;
 #endif
 

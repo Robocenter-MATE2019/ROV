@@ -120,6 +120,9 @@
     <ClInclude Include="MetalDetector.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Electromagnet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RotaryCamera.cpp">
@@ -192,6 +195,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MetalDetector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Electromagnet.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

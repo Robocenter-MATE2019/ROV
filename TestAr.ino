@@ -4,10 +4,7 @@
  Author:	Виталий
 */
 
-#include <Wire.h>
-#include <Servo.h>
-#include <OneWire.h>
-#include <SPI.h>
+
 #include <Arduino.h>
 #include "Rov.h"
 #include "Timer.h"
@@ -21,7 +18,6 @@ void setup()
 #endif
 	Serial.begin(115200);
 	rov.init();
-	//Serial.println("start");
 }
 
 Timer t;

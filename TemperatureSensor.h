@@ -18,7 +18,7 @@ private:
 	OneWire m_wire;
 	Timer m_timer;
 	float m_result = -1.0f;
-#ifdef TIMERS
+#ifdef TIME_DEBUG
 	Timer timer_macros;
 #endif 
 };

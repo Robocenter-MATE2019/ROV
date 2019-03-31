@@ -13,4 +13,7 @@ public:
 	void write(RovData& rov_data);
 private:
 	LevelMotor m_coil_motor;
+#ifdef TIME_DEBUG
+	Timer timer_macros;
+#endif
 };

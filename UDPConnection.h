@@ -48,7 +48,7 @@ private:
 	uint16_t m_remote_port;
 	byte m_mac[6] = { MAC };
 	Timer m_timer;
-#ifdef TIMERS
+#ifdef TIME_DEBUG
 	Timer timer_read_macros;
 	Timer timer_write_macros;
 #endif

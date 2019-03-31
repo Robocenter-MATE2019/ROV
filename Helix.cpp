@@ -9,11 +9,14 @@ Helix::Helix()
 void Helix::init()
 {
 	m_left_helix.init();
-	m_right_helix.init();
+	m_right_helix.init();	
+	DEVICESPRINT("Helix.init()");
 }
 
 void Helix::write(RovData& rov_data)
 {
 	m_left_helix.set_power(rov_data.m_left_helix);
 	m_right_helix.set_power(rov_data.m_right_helix);
+	DEVICESPRINT("Helix.write()");
+	TIME_DEBUGER(timer_macros);
 }

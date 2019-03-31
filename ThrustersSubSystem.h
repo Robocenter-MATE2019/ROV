@@ -21,7 +21,7 @@ private:
 	PIDRegulator m_pitch_reg;
 	PIDRegulator m_roll_reg;
 	PIDRegulator m_yaw_reg;
-#ifdef  TIMERS
+#ifdef  TIME_DEBUG
 	Timer timer_macros;
 #endif 
 };

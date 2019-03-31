@@ -14,7 +14,7 @@ public:
 	void write(RovData& rov_data);
 private:
 	RotaryCamera m_rotary_cam[1];
-#ifdef TIMERS
+#ifdef TIME_DEBUG
 	Timer timer_macros;
 #endif
 };
