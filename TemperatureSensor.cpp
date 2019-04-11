@@ -9,9 +9,9 @@ void TemperatureSensor::init()
 
 void TemperatureSensor::read(RovData& rov_data)
 {
+	TIME_DEBUGER;
 	getTemperature(rov_data);
 	DEVICESPRINT("TenperatureSensor.read()");
-	TIME_DEBUGER(timer_macros);
 }
 
 float TemperatureSensor::getTemperature(RovData& rov_data)

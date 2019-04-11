@@ -1,23 +1,36 @@
 #pragma once
 
-//#define RELEASE
+#include "Profiler.h"
+
+#define RELEASE
 //#define DEBUG
 //#define ROVDATA
 //#define SUBSYSTEMSTEST
 //#define DEVICESTEST
-#define TIME_DEBUG
+//#define TIME_DEBUG
 //#define DATAINFO
 
+#ifdef RELEASE
+#undef DEBUG
+#undef ROVDATA
+#undef SUBSYSTEMSTEST
+#undef DEVICESTEST
+#undef TIME_DEBUG
+#undef DATAINFO
+#endif
+
 #ifdef TIME_DEBUG
-#define TIME_DEBUGER(timer)						\
-if (timer.elapsed() > 1000)						\
-{												\
-	Serial.println(__FILE__);					\
-	Serial.print("LAG!!! time = ");				\
-	Serial.println(timer.elapsed());			\
-	delay(10000000000000000);					\
-}												\
-timer.start();							
+#define SERIALENABLE
+#define TIME_DEBUGER																\
+Profiler prof;																		\
+Serial.print("FILE: ");																\
+Serial.print(String(__FILE__).substring(String(__FILE__).lastIndexOf('\\') + 1));	\
+Serial.print(" | LINE: ");															\
+Serial.print(__LINE__);																\
+Serial.print(" | MSG: ");															\
+
+#else							
+#define TIME_DEBUGER
 #endif
 
 #ifdef SUBSYSTEMSTEST					

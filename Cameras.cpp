@@ -16,9 +16,9 @@ void Cameras::init()
 
 void Cameras::write(RovData& rov_data)
 {
+	TIME_DEBUGER;
 	m_rotary_cam[0].rotate(rov_data.m_rotary_camera[0]);
 	//m_rotary_cam[1].rotate(rov_data.m_rotary_camera[1]);
 	DEVICESPRINT("Cameras.write()");
-	TIME_DEBUGER(timer_macros);
 }
 

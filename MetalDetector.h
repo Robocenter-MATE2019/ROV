@@ -12,7 +12,4 @@ public:
 	void read(RovData& rov_data);
 private:
 	uint8_t m_pin;
-#ifdef TIME_DEBUG
-	Timer timer_macros;
-#endif
 };

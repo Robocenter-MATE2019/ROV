@@ -41,10 +41,12 @@ void ThrustersSubSystem::set_power(int8_t x, int8_t y, int8_t w, int8_t z, uint8
 	if (rov_data.m_axis_z != 0)
 	{
 		rov_data.m_depth_to_set = rov_data.m_depth;
+		//regulator_type = 1;
 	}
 	if (rov_data.m_axis_w != 0)
 	{
 		rov_data.m_yaw_to_set = rov_data.m_yaw;
+		//regulator_type = 2;
 	}
 	manual_regulator(power, x, y, w, z);
 	if(regulator_type & 0x1)
@@ -84,10 +86,10 @@ void ThrustersSubSystem::set_power(int8_t x, int8_t y, int8_t w, int8_t z, uint8
 
 void ThrustersSubSystem::manual_regulator(int8_t power[], int8_t x, int8_t y, int8_t w, int8_t z)
 {
-	power[3] = constrain(y + x + w, -100, 100);
-	power[2] = constrain(y - x - w, -100, 100);
-	power[0] = constrain(y - x + w, -100, 100);
-	power[1] = constrain(y + x - w, -100, 100);
+	power[0] = constrain(y + x + w, -100, 100);
+	power[1] = constrain(y - x - w, -100, 100);
+	power[2] = constrain(y - x + w, -100, 100);
+	power[3] = constrain(y + x - w, -100, 100);
 	power[4] = constrain(z, -100, 100);
 	power[5] = constrain(z, -100, 100);
 	power[6] = constrain(z, -100, 100);
@@ -96,7 +98,7 @@ void ThrustersSubSystem::manual_regulator(int8_t power[], int8_t x, int8_t y, in
 
 void ThrustersSubSystem::write(RovData& rov_data)
 {
+	TIME_DEBUGER;
 	set_power(rov_data.m_axis_x, rov_data.m_axis_y, rov_data.m_axis_w, rov_data.m_axis_z, rov_data.m_regulator_type, rov_data);
 	DEVICESPRINT("ThrustersSubSystem.write()");
-	TIME_DEBUGER(timer_macros);
 }

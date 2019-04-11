@@ -8,6 +8,7 @@
 #include <Arduino.h>
 #include "Rov.h"
 #include "Timer.h"
+#include "Profiler.h"
 
 Rov rov;
 
@@ -20,29 +21,11 @@ void setup()
 	rov.init();
 }
 
-Timer t;
-int i = 0;
-class Profiler {
-public:
-	Profiler() {
-		m_time.start();
-	}
-	~Profiler() {
-		Serial.print("it = ");
-		Serial.print(i++);
-		Serial.print("; timer = ");
-		Serial.println(m_time.elapsed());
-	}
-private:
-	Timer m_time;
-};
-
-
 void loop() 
 {
 	//Profiler p;
-#ifdef SERIALENABLE
-	Serial.println("=========================================");
-#endif 
+//#ifdef SERIALENABLE
+//	Serial.println("=========================================");
+//#endif 
 	rov.run();
 }

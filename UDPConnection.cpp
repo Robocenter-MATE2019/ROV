@@ -92,35 +92,47 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 	rov_data.m_manipulator_rotate = packet.manipulator_rotate;
 	/////////////////////////////////
 
-	if (actionState[0] == 1) rov_data.m_right_helix = 1;
-	else rov_data.m_right_helix = 0;
+	//if (actionState[0] == 1) rov_data.m_right_helix = 1;
+	//else rov_data.m_right_helix = 0;
 
-	if (actionState[0] == 1) rov_data.m_left_helix = 1;
-	else rov_data.m_left_helix = 0;
+	//if (actionState[0] == 1) rov_data.m_left_helix = 1;
+	//else rov_data.m_left_helix = 0;
 
 	if (actionState[1] == 1) rov_data.m_coiler = 1;
 	else if (actionState[0] == 1) rov_data.m_coiler = -1;
 	else rov_data.m_coiler = 0;
+
+	if (actionState[1] == 1) rov_data.m_left_helix = 1;
+	else if (actionState[0] == 1) rov_data.m_left_helix = -1;
+	else rov_data.m_left_helix = 0;
+
+	if (actionState[1] == 1) rov_data.m_right_helix = 1;
+	else if (actionState[0] == 1) rov_data.m_right_helix = -1;
+	else rov_data.m_right_helix = 0;
+
+	if (actionState[1] == 1) rov_data.m_electromagnet = 1;
+	else if (actionState[0] == 1) rov_data.m_electromagnet = 0;
 
 	return true;
 }
 
 void UDPConnection::write(RovData& rov_data)
 {
+	TIME_DEBUGER;
 	OutputPacket packet;
 	packet.yaw = rov_data.m_yaw;
 	packet.depth = rov_data.m_depth;
 	packet.roll = rov_data.m_roll;
 	packet.pitch = rov_data.m_pitch;
 	packet.temperature = rov_data.m_temperature;
+	packet.core = rov_data.m_is_core;
 	sendPacket(packet);
 	DEVICESPRINT("UDPConnection.write()");
-	TIME_DEBUGER(timer_read_macros);
 }
 
 void UDPConnection::read(RovData& rov_data)
 {
+	TIME_DEBUGER;
 	receivePacket(rov_data);
 	DEVICESPRINT("UDPConnection.read()");
-	TIME_DEBUGER(timer_write_macros);
 }

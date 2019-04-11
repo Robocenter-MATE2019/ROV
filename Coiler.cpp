@@ -2,7 +2,7 @@
 
 Coiler::Coiler()
 {
-	m_coil_motor = LevelMotor(COIL_MOTOR_LEFT_PIN, COIL_MOTOR_LEFT_PIN);
+	m_coil_motor = LevelMotor(COIL_MOTOR_LEFT_PIN, COIL_MOTOR_RIGHT_PIN);
 }
 
 void Coiler::init()
@@ -13,7 +13,7 @@ void Coiler::init()
 
 void Coiler::write(RovData& rov_data)
 {
+	TIME_DEBUGER;
 	m_coil_motor.set_power(rov_data.m_coiler);
-	TIME_DEBUGER(timer_macros);
 	DEVICESPRINT("Coiler.write()");
 }

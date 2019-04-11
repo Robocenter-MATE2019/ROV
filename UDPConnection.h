@@ -27,7 +27,7 @@ struct OutputPacket
 	float pitch = 0;
 	float depth = 0;
 	float temperature = 0;
-	bool core = false;
+	uint8_t core = 0;
 };
 
 class UDPConnection : public InputOutput

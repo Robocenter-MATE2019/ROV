@@ -8,9 +8,12 @@ Electromagnet::Electromagnet()
 void Electromagnet::init()
 {
 	pinMode(m_pin, OUTPUT);
+	digitalWrite(m_pin, HIGH);
 }
 
 void Electromagnet::write(RovData& rov_data)
 {
-	analogWrite(m_pin, rov_data.m_electromagnet);
+	TIME_DEBUGER;
+	if(rov_data.m_electromagnet > 0) digitalWrite(m_pin, HIGH);
+	else digitalWrite(m_pin, LOW);
 }

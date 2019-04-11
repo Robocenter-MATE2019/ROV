@@ -29,5 +29,5 @@ struct RovData
 	int8_t m_left_helix;
 	int8_t m_coiler;
 	bool m_is_core;
-	uint8_t m_electromagnet;
+	uint8_t m_electromagnet = 0;
 };
