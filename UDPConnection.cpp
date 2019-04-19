@@ -110,8 +110,8 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 	else if (actionState[0] == 1) rov_data.m_right_helix = -1;
 	else rov_data.m_right_helix = 0;
 
-	if (actionState[1] == 1) rov_data.m_electromagnet = 1;
-	else if (actionState[0] == 1) rov_data.m_electromagnet = 0;
+	if (actionState[2] == 1) rov_data.m_electromagnet = 1;
+	else if (actionState[3] == 1) rov_data.m_electromagnet = 0;
 
 	return true;
 }
@@ -133,6 +133,6 @@ void UDPConnection::write(RovData& rov_data)
 void UDPConnection::read(RovData& rov_data)
 {
 	TIME_DEBUGER;
-	receivePacket(rov_data);
 	DEVICESPRINT("UDPConnection.read()");
+	receivePacket(rov_data);
 }

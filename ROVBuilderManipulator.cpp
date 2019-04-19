@@ -22,6 +22,6 @@ void ROVBuilderManipulator::set_power(int8_t release, int8_t rotate)
 void ROVBuilderManipulator::write(RovData& rov_data)
 {
 	TIME_DEBUGER;
-	set_power(rov_data.m_manipulator_grab, rov_data.m_manipulator_rotate);
 	DEVICESPRINT("ROVBuilderManipulator.write()");
+	set_power(rov_data.m_manipulator_grab, rov_data.m_manipulator_rotate);
 }

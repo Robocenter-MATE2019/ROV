@@ -15,15 +15,15 @@
 
 #define MANIPULATOR_ENABLE					0
 #define THRUSTERSSUBSYSTEM_ENABLE			1
-#define ROTARYCAMERA_ENABLE					0
+#define ROTARYCAMERA_ENABLE					1
 
 #define COILER_ENABLE						1
 #define HELIX_ENABLE						1
 #define METALDETECTOR_ENABLE				1
-#define ELECTROMAGNET_ENABLE				0
+#define ELECTROMAGNET_ENABLE				1
 
-#define TEMPERATURE_SENSOR_ENABLE			0
-#define DEPTH_SENSOR_ENABLE					0
+#define TEMPERATURE_SENSOR_ENABLE			1
+#define DEPTH_SENSOR_ENABLE					1
 #define IMU_ENABLE							1
 
 #define UDP_ENABLE							1
@@ -72,8 +72,8 @@ constexpr uint8_t THRUSTER_SIZE =				8;
 //////////////////RotaryCamera///////////////////
 /////////////////////////////////////////////////
 
-constexpr uint8_t ROTARY_CAMERA_1 =				40;
-constexpr uint8_t ROTARY_CAMERA_2 =				10;
+constexpr uint8_t ROTARY_CAMERA_1 =				8;
+constexpr uint8_t ROTARY_CAMERA_2 =				9;
 
 /////////////////////////////////////////////////
 /////////////////UDPConnection///////////////////
@@ -89,7 +89,7 @@ constexpr int REMOTE_PORT =					5000;
 //////////////Temperature////////////////////////
 /////////////////////////////////////////////////
 
-constexpr uint8_t TEMPERATURE_SENSOR =			2;
+constexpr uint8_t TEMPERATURE_SENSOR =			11;
 
 /////////////////////////////////////////////////
 //////////////////PayLoads///////////////////////

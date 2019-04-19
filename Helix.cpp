@@ -16,7 +16,7 @@ void Helix::init()
 void Helix::write(RovData& rov_data)
 {
 	TIME_DEBUGER;
+	DEVICESPRINT("Helix.write()");
 	m_left_helix.set_power(rov_data.m_left_helix);
 	m_right_helix.set_power(rov_data.m_right_helix);
-	DEVICESPRINT("Helix.write()");
 }

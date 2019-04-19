@@ -14,6 +14,6 @@ void Coiler::init()
 void Coiler::write(RovData& rov_data)
 {
 	TIME_DEBUGER;
-	m_coil_motor.set_power(rov_data.m_coiler);
 	DEVICESPRINT("Coiler.write()");
+	m_coil_motor.set_power(rov_data.m_coiler);
 }

@@ -89,6 +89,7 @@ uint32_t IMU::Packet_Decode(uint8_t c)
 void IMU::read(RovData & rov_data)
 {
 	TIME_DEBUGER;
+	DEVICESPRINT("IMU.read()"); 
 	while (Serial3.available())
 	{
 		uint8_t ch = Serial3.read();
@@ -97,7 +98,6 @@ void IMU::read(RovData & rov_data)
 		rov_data.m_pitch = Eular[1];
 		rov_data.m_yaw = Eular[2];
 	}
-	DEVICESPRINT("IMU.read()");
 }
 
 

@@ -2,7 +2,7 @@
 
 ThrustersSubSystem::ThrustersSubSystem()
 {
-	m_motors[0] = BrushlessMotor (H_FRONT_LEFT);
+	m_motors[0] = BrushlessMotor(H_FRONT_LEFT);
 	m_motors[1] = BrushlessMotor(H_FRONT_RIGHT);
 	m_motors[2] = BrushlessMotor(H_BACK_LEFT);
 	m_motors[3] = BrushlessMotor(H_BACK_RIGHT);
@@ -99,6 +99,6 @@ void ThrustersSubSystem::manual_regulator(int8_t power[], int8_t x, int8_t y, in
 void ThrustersSubSystem::write(RovData& rov_data)
 {
 	TIME_DEBUGER;
-	set_power(rov_data.m_axis_x, rov_data.m_axis_y, rov_data.m_axis_w, rov_data.m_axis_z, rov_data.m_regulator_type, rov_data);
 	DEVICESPRINT("ThrustersSubSystem.write()");
+	set_power(rov_data.m_axis_x, rov_data.m_axis_y, rov_data.m_axis_w, rov_data.m_axis_z, rov_data.m_regulator_type, rov_data);
 }

@@ -14,6 +14,6 @@ void DepthSensor::init()
 void DepthSensor::read(RovData& rov_data)
 {
 	TIME_DEBUGER;
-	rov_data.m_depth = m_ms5803.getPressure(ADC_4096);
 	DEVICESPRINT("DepthSensor.read()");
+	rov_data.m_depth = m_ms5803.getPressure(ADC_4096);
 }

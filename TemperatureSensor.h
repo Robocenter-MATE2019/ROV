@@ -14,11 +14,8 @@ public:
 	void init();
 	void read(RovData& rov_data);
 private:
-	float getTemperature(RovData& rov_data);
+	float getTemperature();
 	OneWire m_wire;
 	Timer m_timer;
 	float m_result = -1.0f;
-#ifdef TIME_DEBUG
-	Timer timer_macros;
-#endif 
 };

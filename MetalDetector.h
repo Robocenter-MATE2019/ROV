@@ -11,5 +11,6 @@ public:
 	void init();
 	void read(RovData& rov_data);
 private:
+	//Timer timer;
 	uint8_t m_pin;
 };

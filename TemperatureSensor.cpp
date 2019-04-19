@@ -5,40 +5,40 @@ TemperatureSensor::TemperatureSensor() : m_wire(TEMPERATURE_SENSOR) {}
 void TemperatureSensor::init()
 {
 	DEVICESPRINT("TenperatureSensor.init()");
+	m_timer.start();
 }
 
 void TemperatureSensor::read(RovData& rov_data)
 {
 	TIME_DEBUGER;
-	getTemperature(rov_data);
 	DEVICESPRINT("TenperatureSensor.read()");
+	rov_data.m_temperature = getTemperature();
 }
 
-float TemperatureSensor::getTemperature(RovData& rov_data)
+float TemperatureSensor::getTemperature()
 {
-	byte i;
-	byte present = 0;
-	byte type_s;
-	byte data[12];
-	byte addr[8];
-	if (!m_wire.search(addr)) {
-		m_wire.reset_search();
-		rov_data.m_temperature = m_result;
-		return m_result;
-	}
-	if (OneWire::crc8(addr, 7) != addr[7]) {
-		rov_data.m_temperature = m_result;
-		return m_result;
-	}
-	m_wire.reset();
-	m_wire.select(addr);
-	m_wire.write(0x44, 1);
-	if (!m_timer.is_started())
-	{
-		m_timer.start();
-	}
 	if (m_timer.elapsed() > 1000)
 	{
+		byte i;
+		byte present = 0;
+		byte type_s;
+		byte data[12];
+		byte addr[8];
+		if (!m_wire.search(addr)) {
+			m_wire.reset_search();
+			return m_result;
+		}
+		if (OneWire::crc8(addr, 7) != addr[7]) {
+			return m_result;
+		}
+		m_wire.reset();
+		m_wire.select(addr);
+		m_wire.write(0x44, 1);
+		/*if (!m_timer.is_started())
+		{
+			m_timer.start();
+		}*/
+
 		present = m_wire.reset();
 		m_wire.select(addr);
 		m_wire.write(0xBE);
@@ -60,8 +60,9 @@ float TemperatureSensor::getTemperature(RovData& rov_data)
 			else if (cfg == 0x40) raw = raw & ~1;
 		}
 		if((float)raw / 16.0 > 0) m_result = (float)raw / 16.0;
-		m_timer.stop();
-		rov_data.m_temperature = m_result;
+		//m_timer.stop();
+		m_timer.start();
 		return m_result;
 	}
+	else return m_result;
 }
