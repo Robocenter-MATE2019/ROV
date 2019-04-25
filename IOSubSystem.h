@@ -5,6 +5,7 @@
 #include "UDPConnection.h"
 #include "InputOutput.h"
 #include "ROV_MACROS.h"
+#include "Container.h"
 
 class IOSubSystem : public SubSystem
 {
@@ -12,5 +13,5 @@ public:
 	IOSubSystem();
 	void init() override;
 	void apply(RovData& rov_data) override;
-	InputOutput* m_devices[SIZE_IO_DEVICES];
+	PolymorphicArray<InputOutput, SIZE_IO_DEVICES> m_devices;
 };

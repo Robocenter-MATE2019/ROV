@@ -21,7 +21,6 @@ private:
 	PIDRegulator m_pitch_reg;
 	PIDRegulator m_roll_reg;
 	PIDRegulator m_yaw_reg;
-#ifdef  TIME_DEBUG
-	Timer timer_macros;
-#endif 
+	Timer timer_;
+	int8_t find_max(int8_t power[], int8_t first, int8_t last);
 };

@@ -15,15 +15,15 @@
 
 #define MANIPULATOR_ENABLE					0
 #define THRUSTERSSUBSYSTEM_ENABLE			1
-#define ROTARYCAMERA_ENABLE					1
+#define ROTARYCAMERA_ENABLE					0
 
-#define COILER_ENABLE						1
-#define HELIX_ENABLE						1
-#define METALDETECTOR_ENABLE				1
-#define ELECTROMAGNET_ENABLE				1
+#define COILER_ENABLE						0
+#define HELIX_ENABLE						0
+#define METALDETECTOR_ENABLE				0
+#define ELECTROMAGNET_ENABLE				0
 
-#define TEMPERATURE_SENSOR_ENABLE			1
-#define DEPTH_SENSOR_ENABLE					1
+#define TEMPERATURE_SENSOR_ENABLE			0
+#define DEPTH_SENSOR_ENABLE					0
 #define IMU_ENABLE							1
 
 #define UDP_ENABLE							1
@@ -50,11 +50,11 @@ constexpr uint8_t MANIPULATOR_ROTATE_RIGHT =	33;
 
 constexpr uint8_t H_FRONT_LEFT =				5;
 constexpr bool H_FRONT_LEFT_INVERSE =		false;
-constexpr uint8_t H_FRONT_RIGHT =				6;
+constexpr uint8_t H_FRONT_RIGHT =				3;
 constexpr bool H_FRONT_RIGHT_INVERSE =		true;
 constexpr uint8_t H_BACK_LEFT =					4;
 constexpr bool H_BACK_LEFT_INVERSE =		true;
-constexpr uint8_t H_BACK_RIGHT =				3;
+constexpr uint8_t H_BACK_RIGHT =				6;
 constexpr bool H_BACK_RIGHT_INVERSE =		false;
 
 constexpr uint8_t V_FRONT_LEFT =				7;

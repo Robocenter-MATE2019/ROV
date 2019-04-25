@@ -1,7 +1,6 @@
 #pragma once
 
-#include <Ethernet_W5500.h>
-#include <EthernetUDP.h>
+#include <Ethernet.h>
 #include <SPI.h>
 #include "Timer.h"
 #include "Config.h"
@@ -48,8 +47,4 @@ private:
 	uint16_t m_remote_port;
 	byte m_mac[6] = { MAC };
 	Timer m_timer;
-#ifdef TIME_DEBUG
-	Timer timer_read_macros;
-	Timer timer_write_macros;
-#endif
 };

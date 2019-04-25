@@ -3,6 +3,7 @@
 #include "SubSystem.h"
 #include "RovData.h"
 #include "Config.h"
+#include "Container.h"
 
 class Rov {
 public:
@@ -10,5 +11,5 @@ public:
 	void init();
 	void run();
 	RovData m_rov_data;
-	SubSystem* m_subsystem[SUBSYSTEM_SIZE];
+	PolymorphicArray<SubSystem, SUBSYSTEM_SIZE> m_subsystem;
 };

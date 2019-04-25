@@ -5,26 +5,20 @@ IOSubSystem::IOSubSystem()
 {
 	int i = 0;
 #if UDP_ENABLE
-	m_devices[i++] = new UDPConnection;
+	m_devices.create<UDPConnection>();
 #endif
 }
 void IOSubSystem::init()
 {
 	SUBSYSTEMSPRINT("IOSubSystem_INIT_Start");
-	for (int i = 0; i < SIZE_IO_DEVICES; i++)
-	{
-		m_devices[i]->init();
-	}
+	invoke_all(m_devices, &InputOutput::init);
 	SUBSYSTEMSPRINT("IOSubSystem_INIT_End");
 }
 
 void IOSubSystem::apply(RovData& rov_data)
 {
 	SUBSYSTEMSPRINT("IOSubSystem_apply_Start");
-	for (int i = 0; i < SIZE_IO_DEVICES; i++)
-	{
-		m_devices[i]->read(rov_data);
-		m_devices[i]->write(rov_data);
-	}
+	invoke_all(m_devices, &InputOutput::write, rov_data);
+	invoke_all(m_devices, &InputOutput::read, rov_data);
 	SUBSYSTEMSPRINT("IOSubSystem_apply_End");
 }

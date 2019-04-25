@@ -9,6 +9,7 @@
 #include "Coiler.h"
 #include "ROV_MACROS.h"
 #include "Electromagnet.h"
+#include "Container.h"
 
 class OutputSubSystem :public SubSystem
 {
@@ -16,7 +17,8 @@ public:
 	OutputSubSystem();
 	void init() override;
 	void apply(RovData& rov_data)override;
-	Output* m_devices[SIZE_OUTPUT_DEVICES];
+	PolymorphicArray<Output, SIZE_OUTPUT_DEVICES> m_devices;
+	//Output* m_devices[SIZE_OUTPUT_DEVICES];
 };
 
 

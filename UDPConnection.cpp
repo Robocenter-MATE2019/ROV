@@ -9,6 +9,7 @@ UDPConnection::UDPConnection() :
 
 void UDPConnection::init()
 {
+	Ethernet.init(10);
 	Ethernet.begin(m_mac, m_self_ip);
 	m_udp.begin(m_self_port);
 	delay(100);
@@ -63,20 +64,21 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 	rov_data.m_axis_w = packet.axisZ_p;
 	//////////////////////////
 
+//	Serial.println(packet.axisX_p);
 	///////////Cameras///////////
 	switch (packet.camera_rotate)
 	{
 	case 1:
-		rov_data.m_rotary_camera[1] = -5;
+		rov_data.m_manual_camera = 1;
 		break;
 	case 2:
-		rov_data.m_rotary_camera[0] = -5;
+		rov_data.m_rotary_camera[rov_data.m_manual_camera] = -5;
 		break;
 	case 3:
-		rov_data.m_rotary_camera[1] = 5;
+		rov_data.m_manual_camera = 0;
 		break;
 	case 4:
-		rov_data.m_rotary_camera[0] = 5;
+		rov_data.m_rotary_camera[rov_data.m_manual_camera] = 5;
 		break;
 	default:
 		rov_data.m_rotary_camera[0] = 0;

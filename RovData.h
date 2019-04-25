@@ -13,17 +13,18 @@ struct RovData
 	int8_t m_manipulator_grab;
 	int8_t m_manipulator_rotate;
 	int8_t m_rotary_camera[2] = { 0, 0 };
+	uint8_t m_manual_camera = 0;
 	
-	float m_yaw = -1.0f;
-	float m_roll = -1.0f;
-	float m_pitch = -1.0f;
-	float m_depth = -1.0f;
+	float m_yaw = 0.0f;
+	float m_roll = 0.0f;
+	float m_pitch = 0.0f;
+	float m_depth = 0.0f;
 	float m_temperature = -1.0f;
 
-	float m_yaw_to_set;
-	float m_roll_to_set;
-	float m_pitch_to_set;
-	float m_depth_to_set;
+	float m_yaw_to_set = 0.0f;
+	float m_roll_to_set = 0.0f;
+	float m_pitch_to_set = 0.0f;
+	float m_depth_to_set = 0.0f;
 
 	int8_t m_right_helix;
 	int8_t m_left_helix;

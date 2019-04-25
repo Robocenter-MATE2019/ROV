@@ -9,6 +9,7 @@
 #include "DepthSensor.h"
 #include "IMU.h"
 #include "MetalDetector.h"
+#include "Container.h"
 
 class InputSubSystem :public SubSystem
 {
@@ -16,7 +17,7 @@ public:
 	InputSubSystem();
 	void init() override;
 	void apply(RovData& rov_data) override;
-	Input* m_devices[SIZE_INPUT_DEVICES];
+	PolymorphicArray<Input, SIZE_INPUT_DEVICES> m_devices;
 };
 
 

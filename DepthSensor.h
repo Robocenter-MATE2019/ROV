@@ -14,7 +14,4 @@ public:
 	void read(RovData& rov_data);
 private:
 	MS5803 m_ms5803;
-#ifdef TIME_DEBUG
-	Timer timer_macros;
-#endif 
 };

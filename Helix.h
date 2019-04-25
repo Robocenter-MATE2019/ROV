@@ -14,7 +14,4 @@ public:
 private:
 	LevelMotor m_left_helix;
 	LevelMotor m_right_helix;
-#ifdef TIME_DEBUG
-	Timer timer_macros;
-#endif
 };
