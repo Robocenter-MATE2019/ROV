@@ -1,5 +1,7 @@
 #pragma once
 
+//#include <Ethernet_W5500.h>
+//#include <EthernetUDP.h>
 #include <Ethernet.h>
 #include <SPI.h>
 #include "Timer.h"
@@ -11,6 +13,7 @@ struct InputPacket
 {
 	signed char button_data1 = 0;
 	signed char button_data2 = 0;
+	signed char button_data3 = 0;
 	int8_t axisX_p = 0; //! -100/100;    
 	int8_t axisY_p = 0; //! -100/100;    
 	int8_t axisZ_p = 0; //! -100/100;    

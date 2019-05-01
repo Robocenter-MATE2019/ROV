@@ -1,5 +1,6 @@
 #include "Arduino.h"
 #include "Timer.h"
+#include "Config.h"
 
 using namespace std;
 
@@ -10,7 +11,7 @@ public:
 	PIDRegulator();
 	PIDRegulator(float pK, float iK, float dK);
 	void set_k(float pK, float iK, float dK);
-	int apply(float to_set, float current);
+	int apply(float to_set, float current, bool flag = false);
 	void set_pk(float pk);
 	void set_ik(float ik);
 	void set_dk(float dk);

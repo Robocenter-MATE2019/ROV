@@ -94,9 +94,25 @@ void IMU::read(RovData & rov_data)
 	{
 		uint8_t ch = Serial3.read();
 		Packet_Decode(ch);
-		rov_data.m_roll = Eular[0];
-		rov_data.m_pitch = Eular[1];
-		rov_data.m_yaw = Eular[2];
+
+		if (Eular[0] < 0)
+		{
+			rov_data.m_roll = Eular[0] + 360;
+		}
+		else rov_data.m_roll = Eular[0];
+
+		if (Eular[1] < 0)
+		{
+			rov_data.m_pitch = Eular[1] + 360;
+		}
+		else rov_data.m_pitch = Eular[1];
+
+		if (Eular[2] < 0)
+		{
+			rov_data.m_yaw = Eular[2] + 360;
+		}
+		else rov_data.m_yaw = Eular[2];
+
 	}
 }
 

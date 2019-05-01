@@ -14,7 +14,12 @@ struct RovData
 	int8_t m_manipulator_rotate;
 	int8_t m_rotary_camera[2] = { 0, 0 };
 	uint8_t m_manual_camera = 0;
-	
+
+	bool m_yaw_reg_enable = false;
+	bool m_depth_reg_enable = false;
+	bool m_roll_reg_enable = false;
+	bool m_pitch_reg_enable = false;
+
 	float m_yaw = 0.0f;
 	float m_roll = 0.0f;
 	float m_pitch = 0.0f;
@@ -22,8 +27,8 @@ struct RovData
 	float m_temperature = -1.0f;
 
 	float m_yaw_to_set = 0.0f;
-	float m_roll_to_set = 0.0f;
-	float m_pitch_to_set = 0.0f;
+	float m_roll_to_set = 358.4;
+	float m_pitch_to_set = 150.5;
 	float m_depth_to_set = 0.0f;
 
 	int8_t m_right_helix;

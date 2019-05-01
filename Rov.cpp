@@ -21,7 +21,9 @@ Rov::Rov()
 void Rov::init()
 {
 	invoke_all(m_subsystem, &SubSystem::init);
-	//delay(10000);
+#if THRUSTERSSUBSYSTEM_ENABLE
+	delay(10000);
+#endif
 }
 
 void Rov::run()

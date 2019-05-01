@@ -13,9 +13,9 @@
 #define INPUTSUBSYSTEM_ENABLE				1
 #define IOSUBSYSTEM_ENABLE					1
 
-#define MANIPULATOR_ENABLE					0
+#define MANIPULATOR_ENABLE					1
 #define THRUSTERSSUBSYSTEM_ENABLE			1
-#define ROTARYCAMERA_ENABLE					0
+#define ROTARYCAMERA_ENABLE					1
 
 #define COILER_ENABLE						0
 #define HELIX_ENABLE						0
@@ -23,8 +23,9 @@
 #define ELECTROMAGNET_ENABLE				0
 
 #define TEMPERATURE_SENSOR_ENABLE			0
-#define DEPTH_SENSOR_ENABLE					0
+#define DEPTH_SENSOR_ENABLE					1
 #define IMU_ENABLE							1
+
 
 #define UDP_ENABLE							1
 
@@ -58,22 +59,24 @@ constexpr uint8_t H_BACK_RIGHT =				6;
 constexpr bool H_BACK_RIGHT_INVERSE =		false;
 
 constexpr uint8_t V_FRONT_LEFT =				7;
-constexpr bool V_FRONT_LEFT_INVERSE =		false;
+constexpr bool V_FRONT_LEFT_INVERSE =		true;
 constexpr uint8_t V_FRONT_RIGHT =				2;
 constexpr bool V_FRONT_RIGHT_INVERSE =		false;
 constexpr uint8_t V_BACK_LEFT =					44;
-constexpr bool V_BACK_LEFT_INVERSE =		false;
+constexpr bool V_BACK_LEFT_INVERSE =		true;
 constexpr uint8_t V_BACK_RIGHT =				46;
 constexpr bool V_BACK_RIGHT_INVERSE =		false;
 
 constexpr uint8_t THRUSTER_SIZE =				8;
 
+#define MAX_POWER 75
+
 /////////////////////////////////////////////////
 //////////////////RotaryCamera///////////////////
 /////////////////////////////////////////////////
 
-constexpr uint8_t ROTARY_CAMERA_1 =				8;
-constexpr uint8_t ROTARY_CAMERA_2 =				9;
+constexpr uint8_t ROTARY_CAMERA_1 =				40;
+constexpr uint8_t ROTARY_CAMERA_2 =				41;
 
 /////////////////////////////////////////////////
 /////////////////UDPConnection///////////////////
@@ -101,8 +104,8 @@ constexpr uint8_t COIL_MOTOR_RIGHT_PIN =		32;
 constexpr uint8_t RIGHT_HELIX_MOTOR_LEFT_PIN =	38;
 constexpr uint8_t RIGHT_HELIX_MOTOR_RIGHT_PIN =	36;
 
-constexpr uint8_t LEFT_HELIX_MOTOR_LEFT_PIN =	40;
-constexpr uint8_t LEFT_HELIX_MOTOR_RIGHT_PIN =	42;
+constexpr uint8_t LEFT_HELIX_MOTOR_LEFT_PIN =	240; //40
+constexpr uint8_t LEFT_HELIX_MOTOR_RIGHT_PIN =	242; //42
 
 constexpr uint8_t METALDETECTOR_PIN =			A8;
 constexpr uint8_t ELECTROMAGNET_PIN =			26;
@@ -118,4 +121,9 @@ constexpr uint8_t COILER_TWIST_BUTTON =			8;
 constexpr uint8_t COILER_UNTWIST_BUTTON =		9;
 
 /////////////////////////////////////////////////
+
+#define DEFAULT_PITCH 150.5
+#define DEFAULT_ROLL -1.6
+
+
 

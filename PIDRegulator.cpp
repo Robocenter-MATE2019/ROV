@@ -13,7 +13,7 @@ PIDRegulator::PIDRegulator(float pK, float iK, float dK)
 	m_timer.start();
 }
 
-int PIDRegulator::apply(float to_set, float current)
+int PIDRegulator::apply(float to_set, float current, bool flag = false)
 {
 	if (is_first)
 	{
@@ -28,14 +28,19 @@ int PIDRegulator::apply(float to_set, float current)
 
 	m_timer.stop();
 	float error = to_set - current;
-	m_integral = constrain(error * time_elaplsed + m_integral, -100, 100);
+	if (!flag)
+	{
+		if (error < 0) error += 360;
+		if (error > 180) error -= 360;
+	}
+	m_integral = constrain(error * time_elaplsed + m_integral, -MAX_POWER, MAX_POWER);
 	proportional_part = m_pK * error;
 	integral_part = m_iK * m_integral;
 	differential_part = m_dK * (error - m_error_old) / time_elaplsed;
 	result = proportional_part + integral_part + differential_part;
 	m_error_old = error;
 	m_timer.start();
-	result = constrain(result, -100, 100);
+	result = constrain(result, -MAX_POWER, MAX_POWER);
 	return result;
 }
 
