@@ -18,7 +18,6 @@ void setup()
 #ifdef SERIALENABLE
 	Serial.begin(115200);
 #endif
-	Serial.begin(115200);
 	rov.init();
 }
 

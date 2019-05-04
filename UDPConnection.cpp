@@ -70,19 +70,15 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 	switch (packet.camera_rotate)
 	{
 	case 1:
-		//rov_data.m_manual_camera = 1;
 		rov_data.m_rotary_camera[1] = 3;
 		break;
 	case 2:
-		//rov_data.m_rotary_camera[rov_data.m_manual_camera] = -5;
 		rov_data.m_rotary_camera[0] = 3;
 		break;
 	case 3:
-		//rov_data.m_manual_camera = 0;
 		rov_data.m_rotary_camera[1] = -3;
 		break;
 	case 4:
-		//rov_data.m_rotary_camera[rov_data.m_manual_camera] = 5;
 		rov_data.m_rotary_camera[0] = -3;
 		break;
 	default:
@@ -93,8 +89,8 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 	/////////////////////////////
 
 	///////////Manipulator///////////
-	if (actionState[1] == 1) rov_data.m_manipulator_grab = 1;
-	else if (actionState[0] == 1) rov_data.m_manipulator_grab = -1;
+	if (actionState[0] == 1) rov_data.m_manipulator_grab = 1;
+	else if (actionState[1] == 1) rov_data.m_manipulator_grab = -1;
 	else rov_data.m_manipulator_grab = 0;
 	rov_data.m_manipulator_rotate = packet.manipulator_rotate;
 	/////////////////////////////////
@@ -118,15 +114,6 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 	rov_data.m_depth_reg_enable = actionState[13];
 	rov_data.m_roll_reg_enable = actionState[14];
 	rov_data.m_pitch_reg_enable = actionState[15];
-
-	//Serial.print("yaw_reg = ");
-	//Serial.println(rov_data.m_yaw_reg_enable);
-	//Serial.print("depth_reg = ");
-	//Serial.println(rov_data.m_depth_reg_enable);
-	//Serial.print("roll_reg = ");
-	//Serial.println(rov_data.m_roll_reg_enable);
-	//Serial.print("pitch_reg = ");
-	//Serial.println(rov_data.m_pitch_reg_enable);
 
 	return true;
 }

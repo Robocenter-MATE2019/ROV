@@ -34,11 +34,7 @@ float TemperatureSensor::getTemperature()
 		m_wire.reset();
 		m_wire.select(addr);
 		m_wire.write(0x44, 1);
-		/*if (!m_timer.is_started())
-		{
-			m_timer.start();
-		}*/
-
+	
 		present = m_wire.reset();
 		m_wire.select(addr);
 		m_wire.write(0xBE);
@@ -60,7 +56,6 @@ float TemperatureSensor::getTemperature()
 			else if (cfg == 0x40) raw = raw & ~1;
 		}
 		if((float)raw / 16.0 > 0) m_result = (float)raw / 16.0;
-		//m_timer.stop();
 		m_timer.start();
 		return m_result;
 	}

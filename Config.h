@@ -18,12 +18,12 @@
 #define ROTARYCAMERA_ENABLE					1
 
 #define COILER_ENABLE						0
-#define HELIX_ENABLE						0
+#define HELIX_ENABLE						1
 #define METALDETECTOR_ENABLE				0
-#define ELECTROMAGNET_ENABLE				0
+#define ELECTROMAGNET_ENABLE				1
 
-#define TEMPERATURE_SENSOR_ENABLE			0
-#define DEPTH_SENSOR_ENABLE					1
+#define TEMPERATURE_SENSOR_ENABLE			1
+#define DEPTH_SENSOR_ENABLE					0
 #define IMU_ENABLE							1
 
 
@@ -69,7 +69,7 @@ constexpr bool V_BACK_RIGHT_INVERSE =		false;
 
 constexpr uint8_t THRUSTER_SIZE =				8;
 
-#define MAX_POWER 75
+#define MAX_POWER 85
 
 /////////////////////////////////////////////////
 //////////////////RotaryCamera///////////////////
@@ -104,8 +104,8 @@ constexpr uint8_t COIL_MOTOR_RIGHT_PIN =		32;
 constexpr uint8_t RIGHT_HELIX_MOTOR_LEFT_PIN =	38;
 constexpr uint8_t RIGHT_HELIX_MOTOR_RIGHT_PIN =	36;
 
-constexpr uint8_t LEFT_HELIX_MOTOR_LEFT_PIN =	240; //40
-constexpr uint8_t LEFT_HELIX_MOTOR_RIGHT_PIN =	242; //42
+constexpr uint8_t LEFT_HELIX_MOTOR_LEFT_PIN =	35;
+constexpr uint8_t LEFT_HELIX_MOTOR_RIGHT_PIN =	42;
 
 constexpr uint8_t METALDETECTOR_PIN =			A8;
 constexpr uint8_t ELECTROMAGNET_PIN =			26;
@@ -123,7 +123,7 @@ constexpr uint8_t COILER_UNTWIST_BUTTON =		9;
 /////////////////////////////////////////////////
 
 #define DEFAULT_PITCH 150.5
-#define DEFAULT_ROLL -1.6
+#define DEFAULT_ROLL 358.4
 
 
 

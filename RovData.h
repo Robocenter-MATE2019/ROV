@@ -27,8 +27,8 @@ struct RovData
 	float m_temperature = -1.0f;
 
 	float m_yaw_to_set = 0.0f;
-	float m_roll_to_set = 358.4;
-	float m_pitch_to_set = 150.5;
+	float m_roll_to_set = 0.27f;
+	float m_pitch_to_set = 149.0f;
 	float m_depth_to_set = 0.0f;
 
 	int8_t m_right_helix;

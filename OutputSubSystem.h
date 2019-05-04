@@ -18,7 +18,6 @@ public:
 	void init() override;
 	void apply(RovData& rov_data)override;
 	PolymorphicArray<Output, SIZE_OUTPUT_DEVICES> m_devices;
-	//Output* m_devices[SIZE_OUTPUT_DEVICES];
 };
 
 
