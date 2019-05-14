@@ -99,9 +99,6 @@
     <ClInclude Include="SparkFun_MS5803_I2C.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DepthSensor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="IMU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -127,6 +124,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Container.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MS5837.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthSensorMS5837.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DepthSensorMS5803.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -188,9 +194,6 @@
     <ClCompile Include="SparkFun_MS5803_I2C.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DepthSensor.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="IMU.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -204,6 +207,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Electromagnet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MS5837.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DepthSensorMS5837.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DepthSensorMS5803.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

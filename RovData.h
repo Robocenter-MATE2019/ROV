@@ -1,6 +1,7 @@
 #pragma once
 
 #include <stdint.h>
+#include "Config.h"
 
 struct RovData
 {
@@ -36,4 +37,8 @@ struct RovData
 	int8_t m_coiler;
 	bool m_is_core;
 	uint8_t m_electromagnet = 0;
+	
+	bool BERSERK = false;
+	int8_t MAX_HORIZONTAL_POWER = MAX_POWER;
+	int8_t MAX_VERTICAL_POWER = MAX_POWER;
 };

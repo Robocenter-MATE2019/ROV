@@ -60,48 +60,48 @@ void ThrustersSubSystem::applyDepthReg(int8_t power[], RovData& rov_data)
 {
 	int pow = m_depth_reg.apply(rov_data.m_depth_to_set, rov_data.m_depth, true);
 	/*int8_t max_ = find_max(power, 4, 7);
-	if (max_ + pow >= MAX_POWER)
+	if (max_ + pow >= rov_data.MAX_HORIZONTAL_POWER)
 	{
-		power[4] -= MAX_POWER;
-		power[5] -= MAX_POWER;
-		power[6] -= MAX_POWER;
-		power[7] -= MAX_POWER;
+		power[4] -= rov_data.MAX_HORIZONTAL_POWER;
+		power[5] -= rov_data.MAX_HORIZONTAL_POWER;
+		power[6] -= rov_data.MAX_HORIZONTAL_POWER;
+		power[7] -= rov_data.MAX_HORIZONTAL_POWER;
 	}
-	else if (max_ + pow <= -MAX_POWER)
+	else if (max_ + pow <= -rov_data.MAX_HORIZONTAL_POWER)
 	{
-		power[4] += MAX_POWER;
-		power[5] += MAX_POWER;
-		power[6] += MAX_POWER;
-		power[7] += MAX_POWER;
+		power[4] += rov_data.MAX_HORIZONTAL_POWER;
+		power[5] += rov_data.MAX_HORIZONTAL_POWER;
+		power[6] += rov_data.MAX_HORIZONTAL_POWER;
+		power[7] += rov_data.MAX_HORIZONTAL_POWER;
 	}*/
-	power[4] = constrain(power[4] + pow, -MAX_POWER, MAX_POWER);
-	power[5] = constrain(power[5] + pow, -MAX_POWER, MAX_POWER);
-	power[6] = constrain(power[6] + pow, -MAX_POWER, MAX_POWER);
-	power[7] = constrain(power[7] + pow, -MAX_POWER, MAX_POWER);
+	power[4] = constrain(power[4] + pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
+	power[5] = constrain(power[5] + pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
+	power[6] = constrain(power[6] + pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
+	power[7] = constrain(power[7] + pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
 }
 
 void ThrustersSubSystem::applyYawReg(int8_t power[], RovData& rov_data)
 {
 	int pow = m_yaw_reg.apply(rov_data.m_yaw_to_set, rov_data.m_yaw);
 	/*int8_t max_ = find_max(power, 0, 3);
-	if (max_ + pow >= MAX_POWER)
+	if (max_ + pow >= rov_data.MAX_HORIZONTAL_POWER)
 	{
-		power[0] -= MAX_POWER;
-		power[1] -= MAX_POWER;
-		power[2] -= MAX_POWER;
-		power[3] -= MAX_POWER;
+		power[0] -= rov_data.MAX_HORIZONTAL_POWER;
+		power[1] -= rov_data.MAX_HORIZONTAL_POWER;
+		power[2] -= rov_data.MAX_HORIZONTAL_POWER;
+		power[3] -= rov_data.MAX_HORIZONTAL_POWER;
 	}
-	else if (max_ + pow <= -MAX_POWER)
+	else if (max_ + pow <= -rov_data.MAX_HORIZONTAL_POWER)
 	{
-		power[0] += MAX_POWER;
-		power[1] += MAX_POWER;
-		power[2] += MAX_POWER;
-		power[3] += MAX_POWER;
+		power[0] += rov_data.MAX_HORIZONTAL_POWER;
+		power[1] += rov_data.MAX_HORIZONTAL_POWER;
+		power[2] += rov_data.MAX_HORIZONTAL_POWER;
+		power[3] += rov_data.MAX_HORIZONTAL_POWER;
 	}*/
-	power[0] = constrain(power[0] - pow, -MAX_POWER, MAX_POWER);
-	power[1] = constrain(power[1] + pow, -MAX_POWER, MAX_POWER);
-	power[2] = constrain(power[2] - pow, -MAX_POWER, MAX_POWER);
-	power[3] = constrain(power[3] + pow, -MAX_POWER, MAX_POWER);
+	power[0] = constrain(power[0] - pow, -rov_data.MAX_HORIZONTAL_POWER, rov_data.MAX_HORIZONTAL_POWER);
+	power[1] = constrain(power[1] + pow, -rov_data.MAX_HORIZONTAL_POWER, rov_data.MAX_HORIZONTAL_POWER);
+	power[2] = constrain(power[2] - pow, -rov_data.MAX_HORIZONTAL_POWER, rov_data.MAX_HORIZONTAL_POWER);
+	power[3] = constrain(power[3] + pow, -rov_data.MAX_HORIZONTAL_POWER, rov_data.MAX_HORIZONTAL_POWER);
 	
 }
 
@@ -109,24 +109,24 @@ void ThrustersSubSystem::applyRollReg(int8_t power[], RovData& rov_data)
 {
 	int pow = m_roll_reg.apply(rov_data.m_roll_to_set, rov_data.m_roll);
 	/*int8_t max_ = find_max(power, 4, 7);
-	if (max_ + pow >= MAX_POWER)
+	if (max_ + pow >= rov_data.MAX_HORIZONTAL_POWER)
 	{
-		power[4] -= MAX_POWER;
-		power[5] -= MAX_POWER;
-		power[6] -= MAX_POWER;
-		power[7] -= MAX_POWER;
+		power[4] -= rov_data.MAX_HORIZONTAL_POWER;
+		power[5] -= rov_data.MAX_HORIZONTAL_POWER;
+		power[6] -= rov_data.MAX_HORIZONTAL_POWER;
+		power[7] -= rov_data.MAX_HORIZONTAL_POWER;
 	}
-	else if (max_ + pow <= -MAX_POWER)
+	else if (max_ + pow <= -rov_data.MAX_HORIZONTAL_POWER)
 	{
-		power[4] += MAX_POWER;
-		power[5] += MAX_POWER;
-		power[6] += MAX_POWER;
-		power[7] += MAX_POWER;
+		power[4] += rov_data.MAX_HORIZONTAL_POWER;
+		power[5] += rov_data.MAX_HORIZONTAL_POWER;
+		power[6] += rov_data.MAX_HORIZONTAL_POWER;
+		power[7] += rov_data.MAX_HORIZONTAL_POWER;
 	}*/
-	power[4] = constrain(power[4] + pow, -MAX_POWER, MAX_POWER);
-	power[5] = constrain(power[5] + pow, -MAX_POWER, MAX_POWER);
-	power[6] = constrain(power[6] - pow, -MAX_POWER, MAX_POWER);
-	power[7] = constrain(power[7] - pow, -MAX_POWER, MAX_POWER);
+	power[4] = constrain(power[4] + pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
+	power[5] = constrain(power[5] + pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
+	power[6] = constrain(power[6] - pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
+	power[7] = constrain(power[7] - pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
 	
 }
 
@@ -134,30 +134,30 @@ void ThrustersSubSystem::applyPitchReg(int8_t power[], RovData& rov_data)
 {
 	int pow = m_pitch_reg.apply(rov_data.m_pitch_to_set, rov_data.m_pitch);
 	int8_t max_ = find_max(power, 4, 7);
-	/*if (max_ + pow >= MAX_POWER)
+	/*if (max_ + pow >= rov_data.MAX_HORIZONTAL_POWER)
 	{
-		power[4] -= MAX_POWER;
-		power[5] -= MAX_POWER;
-		power[6] -= MAX_POWER;
-		power[7] -= MAX_POWER;
+		power[4] -= rov_data.MAX_HORIZONTAL_POWER;
+		power[5] -= rov_data.MAX_HORIZONTAL_POWER;
+		power[6] -= rov_data.MAX_HORIZONTAL_POWER;
+		power[7] -= rov_data.MAX_HORIZONTAL_POWER;
 	}
-	else if (max_ + pow <= -MAX_POWER)
+	else if (max_ + pow <= -rov_data.MAX_HORIZONTAL_POWER)
 	{
-		power[4] += MAX_POWER;
-		power[5] += MAX_POWER;
-		power[6] += MAX_POWER;
-		power[7] += MAX_POWER;
+		power[4] += rov_data.MAX_HORIZONTAL_POWER;
+		power[5] += rov_data.MAX_HORIZONTAL_POWER;
+		power[6] += rov_data.MAX_HORIZONTAL_POWER;
+		power[7] += rov_data.MAX_HORIZONTAL_POWER;
 	}*/
-	power[4] = constrain(power[4] - pow, -MAX_POWER, MAX_POWER);
-	power[5] = constrain(power[5] + pow, -MAX_POWER, MAX_POWER);
-	power[6] = constrain(power[6] - pow, -MAX_POWER, MAX_POWER);
-	power[7] = constrain(power[7] + pow, -MAX_POWER, MAX_POWER);
+	power[4] = constrain(power[4] - pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
+	power[5] = constrain(power[5] + pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
+	power[6] = constrain(power[6] - pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
+	power[7] = constrain(power[7] + pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
 }
 
 void ThrustersSubSystem::set_power(int8_t x, int8_t y, int8_t w, int8_t z, uint8_t regulator_type, RovData& rov_data)
 {
 	int8_t power[THRUSTER_SIZE] = {0};
-	manual_regulator(power, x, y, w, z);
+	manual_regulator(power, x, y, w, z, rov_data);
 	regulator_check(power, rov_data);
 
 	for (int i = 0; i < THRUSTER_SIZE; i++)
@@ -166,16 +166,16 @@ void ThrustersSubSystem::set_power(int8_t x, int8_t y, int8_t w, int8_t z, uint8
 	}
 }
 
-void ThrustersSubSystem::manual_regulator(int8_t power[], int8_t x, int8_t y, int8_t w, int8_t z)
+void ThrustersSubSystem::manual_regulator(int8_t power[], int8_t x, int8_t y, int8_t w, int8_t z, RovData& rov_data)
 {
-	power[0] = constrain(y + x + w, -MAX_POWER, MAX_POWER);
-	power[1] = constrain(y - x - w, -MAX_POWER, MAX_POWER);
-	power[2] = constrain(y - x + w, -MAX_POWER, MAX_POWER);
-	power[3] = constrain(y + x - w, -MAX_POWER, MAX_POWER);
-	power[4] = constrain(z, -MAX_POWER, MAX_POWER);
-	power[5] = constrain(z, -MAX_POWER, MAX_POWER);
-	power[6] = constrain(z, -MAX_POWER, MAX_POWER);
-	power[7] = constrain(z, -MAX_POWER, MAX_POWER);
+	power[0] = constrain(y + x + w, -rov_data.MAX_HORIZONTAL_POWER, rov_data.MAX_HORIZONTAL_POWER);
+	power[1] = constrain(y - x - w, -rov_data.MAX_HORIZONTAL_POWER, rov_data.MAX_HORIZONTAL_POWER);
+	power[2] = constrain(y - x + w, -rov_data.MAX_HORIZONTAL_POWER, rov_data.MAX_HORIZONTAL_POWER);
+	power[3] = constrain(y + x - w, -rov_data.MAX_HORIZONTAL_POWER, rov_data.MAX_HORIZONTAL_POWER);
+	power[4] = constrain(z, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
+	power[5] = constrain(z, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
+	power[6] = constrain(z, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
+	power[7] = constrain(z, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
 }
 
 void ThrustersSubSystem::write(RovData& rov_data)

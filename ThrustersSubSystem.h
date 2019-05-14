@@ -16,13 +16,12 @@ public:
 	void set_power(int8_t x, int8_t y, int8_t w, int8_t z, uint8_t regulator_type, RovData& rov_data);
 private:
 	//void flip_feature();
-	//void goat_feature(int8_t power[], RovData& rov_data);
 	void applyYawReg(int8_t power[], RovData& rov_data);
 	void applyDepthReg(int8_t power[], RovData& rov_data);
 	void applyPitchReg(int8_t power[], RovData& rov_data);
 	void applyRollReg(int8_t power[], RovData& rov_data);
 	void regulator_check(int8_t power[], RovData& rov_data);
-	void manual_regulator(int8_t power[], int8_t x, int8_t y, int8_t w, int8_t z);
+	void manual_regulator(int8_t power[], int8_t x, int8_t y, int8_t w, int8_t z, RovData& rov_data);
 	BrushlessMotor m_motors[THRUSTER_SIZE];
 	PIDRegulator m_depth_reg;
 	PIDRegulator m_pitch_reg;

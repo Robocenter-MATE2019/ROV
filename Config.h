@@ -18,22 +18,41 @@
 #define ROTARYCAMERA_ENABLE					1
 
 #define COILER_ENABLE						0
-#define HELIX_ENABLE						1
+#define HELIX_ENABLE						0
 #define METALDETECTOR_ENABLE				0
-#define ELECTROMAGNET_ENABLE				1
+#define ELECTROMAGNET_ENABLE				0
 
 #define TEMPERATURE_SENSOR_ENABLE			1
 #define DEPTH_SENSOR_ENABLE					0
 #define IMU_ENABLE							1
 
-
 #define UDP_ENABLE							1
 
-constexpr int SIZE_OUTPUT_DEVICES = MANIPULATOR_ENABLE + THRUSTERSSUBSYSTEM_ENABLE + ROTARYCAMERA_ENABLE + COILER_ENABLE + HELIX_ENABLE + ELECTROMAGNET_ENABLE;
-constexpr int SIZE_INPUT_DEVICES =  IMU_ENABLE + DEPTH_SENSOR_ENABLE + TEMPERATURE_SENSOR_ENABLE + METALDETECTOR_ENABLE;
-constexpr int SIZE_IO_DEVICES =     UDP_ENABLE;
+constexpr int SIZE_OUTPUT_DEVICES = 
 
-constexpr int SUBSYSTEM_SIZE =      INPUTSUBSYSTEM_ENABLE + OUTPUTSUBSYSTEM_ENABLE + IOSUBSYSTEM_ENABLE;
+MANIPULATOR_ENABLE + 
+THRUSTERSSUBSYSTEM_ENABLE + 
+ROTARYCAMERA_ENABLE + 
+COILER_ENABLE + 
+HELIX_ENABLE + 
+ELECTROMAGNET_ENABLE;
+
+constexpr int SIZE_INPUT_DEVICES =  
+
+IMU_ENABLE + 
+DEPTH_SENSOR_ENABLE +
+TEMPERATURE_SENSOR_ENABLE + 
+METALDETECTOR_ENABLE;
+
+constexpr int SIZE_IO_DEVICES =    
+
+UDP_ENABLE;
+
+constexpr int SUBSYSTEM_SIZE =     
+
+INPUTSUBSYSTEM_ENABLE + 
+OUTPUTSUBSYSTEM_ENABLE + 
+IOSUBSYSTEM_ENABLE;
 
 /////////////////////////////////////////////////
 /////////////ROVBuilderManipulator///////////////
@@ -69,7 +88,7 @@ constexpr bool V_BACK_RIGHT_INVERSE =		false;
 
 constexpr uint8_t THRUSTER_SIZE =				8;
 
-#define MAX_POWER 85
+constexpr uint8_t MAX_POWER =					85;
 
 /////////////////////////////////////////////////
 //////////////////RotaryCamera///////////////////
@@ -114,16 +133,16 @@ constexpr uint8_t ELECTROMAGNET_PIN =			26;
 ////////////////////Buttons//////////////////////
 /////////////////////////////////////////////////
 
-constexpr uint8_t RIGHT_HELIX_BUTTON =			2;
-constexpr uint8_t LEFT_HELIX_BUTTON =			3;
+constexpr uint8_t RIGHT_HELIX_BUTTON_TWIST =	18;
+constexpr uint8_t RIGHT_HELIX_BUTTON_UNTWIST =	21;
 
-constexpr uint8_t COILER_TWIST_BUTTON =			8;
-constexpr uint8_t COILER_UNTWIST_BUTTON =		9;
+constexpr uint8_t LEFT_HELIX_BUTTON_TWIST =		17;
+constexpr uint8_t LEFT_HELIX_BUTTON_UNTWIST =	20;
+
+constexpr uint8_t COILER_TWIST_BUTTON =			16;
+constexpr uint8_t COILER_UNTWIST_BUTTON =		19;
 
 /////////////////////////////////////////////////
-
-#define DEFAULT_PITCH 150.5
-#define DEFAULT_ROLL 358.4
 
 
 

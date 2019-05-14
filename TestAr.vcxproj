@@ -93,7 +93,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(ProjectDir)..\ROV-master;$(ProjectDir)..\..\..\Documents\Arduino\Scetchs\libraries\Ethernet-master\src;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\libraries\SPI\src;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\libraries\Servo\src;$(ProjectDir)..\..\..\Documents\Arduino\Scetchs\libraries\OneWire-master;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\libraries\Wire\src;$(ProjectDir)..\..\..\Documents\Arduino\Scetchs\libraries\Ethernet-master\src\utility;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\libraries;$(ProjectDir)..\..\..\Documents\Arduino\Scetchs\libraries;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\libraries;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\cores\arduino;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\variants\mega;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\avr\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\avr\include\avr;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\lib\gcc\avr\4.8.1\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\lib\gcc\avr\4.9.2\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\ROV-master;$(ProjectDir)..\..\..\Documents\Arduino\Scetchs\libraries\Ethernet-master\src;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\libraries\SPI\src;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\libraries\Servo\src;$(ProjectDir)..\..\..\Documents\Arduino\Scetchs\libraries\OneWire-master;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\libraries\Wire\src;$(ProjectDir)..\..\..\Documents\Arduino\Scetchs\libraries\Ethernet-master\src\utility;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\libraries\Wire\src\utility;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\libraries;$(ProjectDir)..\..\..\Documents\Arduino\Scetchs\libraries;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\libraries;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\cores\arduino;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\arduino\avr\variants\mega;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\avr\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\avr\include\avr;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\lib\gcc\avr\4.8.1\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\lib\gcc\avr\4.9.2\include;$(ProjectDir)..\..\..\..\..\Program Files (x86)\arduino-1.8.7\hardware\tools\avr\lib\gcc\avr\4.9.3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ProjectDir)__vm\.ROV-master.vsarduino.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <WholeProgramOptimization>false</WholeProgramOptimization>
       <PreprocessorDefinitions>__AVR_ATmega2560__;F_CPU=16000000L;ARDUINO=10807;ARDUINO_AVR_MEGA2560;ARDUINO_ARCH_AVR;__cplusplus=201103L;_VMICRO_INTELLISENSE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -122,7 +122,8 @@
     <ClInclude Include="Coiler.h" />
     <ClInclude Include="Config.h" />
     <ClInclude Include="Container.h" />
-    <ClInclude Include="DepthSensor.h" />
+    <ClInclude Include="DepthSensorMS5803.h" />
+    <ClInclude Include="DepthSensorMS5837.h" />
     <ClInclude Include="Electromagnet.h" />
     <ClInclude Include="Helix.h" />
     <ClInclude Include="IMU.h" />
@@ -133,6 +134,7 @@
     <ClInclude Include="LevelMotor.h" />
     <ClInclude Include="MetalDetector.h" />
     <ClInclude Include="Motor.h" />
+    <ClInclude Include="MS5837.h" />
     <ClInclude Include="Output.h" />
     <ClInclude Include="OutputSubSystem.h" />
     <ClInclude Include="PIDRegulator.h" />
@@ -159,7 +161,8 @@
     <ClCompile Include="BrushMotor.cpp" />
     <ClCompile Include="Cameras.cpp" />
     <ClCompile Include="Coiler.cpp" />
-    <ClCompile Include="DepthSensor.cpp" />
+    <ClCompile Include="DepthSensorMS5803.cpp" />
+    <ClCompile Include="DepthSensorMS5837.cpp" />
     <ClCompile Include="Electromagnet.cpp" />
     <ClCompile Include="Helix.cpp" />
     <ClCompile Include="IMU.cpp" />
@@ -168,6 +171,7 @@
     <ClCompile Include="LevelMotor.cpp" />
     <ClCompile Include="MetalDetector.cpp" />
     <ClCompile Include="Motor.cpp" />
+    <ClCompile Include="MS5837.cpp" />
     <ClCompile Include="OutputSubSystem.cpp" />
     <ClCompile Include="PIDRegulator.cpp" />
     <ClCompile Include="RotaryCamera.cpp" />

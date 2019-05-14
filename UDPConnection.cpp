@@ -63,8 +63,31 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 	rov_data.m_axis_x = packet.axisX_p;
 	rov_data.m_axis_y = packet.axisY_p;
 	rov_data.m_axis_z = packet.axisW_p;
-	rov_data.m_axis_w = constrain(packet.axisZ_p, -MAX_POWER, MAX_POWER);
+	rov_data.m_axis_w = packet.axisZ_p;
 	//////////////////////////
+
+	if (actionState[7])
+	{
+		rov_data.BERSERK = true;
+	}
+	else if (actionState[4] || actionState[5] || actionState[6])
+	{
+		rov_data.BERSERK = false;
+	}
+	
+	if (rov_data.BERSERK)
+	{
+		if (abs(rov_data.m_axis_z) > MAX_POWER)
+		{
+			rov_data.MAX_VERTICAL_POWER = 100;
+			rov_data.MAX_HORIZONTAL_POWER = MAX_POWER;
+		}
+		else
+		{
+			rov_data.MAX_VERTICAL_POWER = MAX_POWER;
+			rov_data.MAX_HORIZONTAL_POWER = 100;
+		}
+	}
 
 	///////////Cameras///////////
 	switch (packet.camera_rotate)
@@ -89,26 +112,27 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 	/////////////////////////////
 
 	///////////Manipulator///////////
-	if (actionState[0] == 1) rov_data.m_manipulator_grab = 1;
-	else if (actionState[1] == 1) rov_data.m_manipulator_grab = -1;
+	if (actionState[1]) rov_data.m_manipulator_grab = 1;
+	else if (actionState[0]) rov_data.m_manipulator_grab = -1;
 	else rov_data.m_manipulator_grab = 0;
 	rov_data.m_manipulator_rotate = packet.manipulator_rotate;
 	/////////////////////////////////
 
-	if (actionState[16] == 1) rov_data.m_coiler = 1;
-	else if (actionState[19] == 1) rov_data.m_coiler = -1;
+	if (actionState[COILER_TWIST_BUTTON]) rov_data.m_coiler = 1;
+	else if (actionState[COILER_UNTWIST_BUTTON]) rov_data.m_coiler = -1;
 	else rov_data.m_coiler = 0;
 
-	if (actionState[17] == 1) rov_data.m_left_helix = 1;
-	else if (actionState[20] == 1) rov_data.m_left_helix = -1;
+	if (actionState[RIGHT_HELIX_BUTTON_TWIST]) rov_data.m_left_helix = 1;
+	else if (actionState[RIGHT_HELIX_BUTTON_UNTWIST]) rov_data.m_left_helix = -1;
 	else rov_data.m_left_helix = 0;
 
-	if (actionState[18] == 1) rov_data.m_right_helix = 1;
-	else if (actionState[21] == 1) rov_data.m_right_helix = -1;
+	if (actionState[LEFT_HELIX_BUTTON_TWIST]) rov_data.m_right_helix = 1;
+	else if (actionState[LEFT_HELIX_BUTTON_UNTWIST]) rov_data.m_right_helix = -1;
 	else rov_data.m_right_helix = 0;
 
-	if (actionState[8] == 1) rov_data.m_electromagnet = 1;
-	else if (actionState[9] == 1) rov_data.m_electromagnet = 0;
+	if (actionState[8]) rov_data.m_roll_to_set = 160;
+	else if (actionState[9]) rov_data.m_roll_to_set = 200;
+	else rov_data.m_roll_to_set = 0.27f;
 
 	rov_data.m_yaw_reg_enable = actionState[12];
 	rov_data.m_depth_reg_enable = actionState[13];

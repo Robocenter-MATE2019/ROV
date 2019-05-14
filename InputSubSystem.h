@@ -6,10 +6,11 @@
 #include "Config.h"
 #include "ROV_MACROS.h"
 #include "TemperatureSensor.h"
-#include "DepthSensor.h"
+#include "DepthSensorMS5837.h"
 #include "IMU.h"
 #include "MetalDetector.h"
 #include "Container.h"
+#include "DepthSensorMS5803.h"
 
 class InputSubSystem :public SubSystem
 {

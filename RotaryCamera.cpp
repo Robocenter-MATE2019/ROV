@@ -30,7 +30,7 @@ void RotaryCamera::rotate(int8_t angle)
 	{
 		m_angle += m_lastangle;
 		timer.start();
-		m_angle = constrain(m_angle, 25, 165);
+		m_angle = constrain(m_angle, 3, 179);
 		m_driver.write(m_angle);
 	}
 }
