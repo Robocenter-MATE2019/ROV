@@ -28,16 +28,16 @@ struct RovData
 	float m_temperature = -1.0f;
 
 	float m_yaw_to_set = 0.0f;
-	float m_roll_to_set = 0.27f;
-	float m_pitch_to_set = 149.0f;
+	float m_roll_to_set = DEFAULT_ROLL;
+	float m_pitch_to_set = DEFAULT_PITCH;
 	float m_depth_to_set = 0.0f;
 
 	int8_t m_right_helix;
 	int8_t m_left_helix;
 	int8_t m_coiler;
-	bool m_is_core;
 	uint8_t m_electromagnet = 0;
-	
+	bool m_is_core;
+
 	bool BERSERK = false;
 	int8_t MAX_HORIZONTAL_POWER = MAX_POWER;
 	int8_t MAX_VERTICAL_POWER = MAX_POWER;

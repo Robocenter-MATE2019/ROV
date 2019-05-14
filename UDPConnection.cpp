@@ -132,7 +132,11 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 
 	if (actionState[8]) rov_data.m_roll_to_set = 160;
 	else if (actionState[9]) rov_data.m_roll_to_set = 200;
-	else rov_data.m_roll_to_set = 0.27f;
+	else rov_data.m_roll_to_set = DEFAULT_ROLL;
+
+	if (actionState[2]) rov_data.m_pitch_to_set = 349;
+	else if (actionState[3]) rov_data.m_pitch_to_set = 309;
+	else rov_data.m_roll_to_set = DEFAULT_PITCH;
 
 	rov_data.m_yaw_reg_enable = actionState[12];
 	rov_data.m_depth_reg_enable = actionState[13];

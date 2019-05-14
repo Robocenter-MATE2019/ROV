@@ -54,6 +54,10 @@ INPUTSUBSYSTEM_ENABLE +
 OUTPUTSUBSYSTEM_ENABLE + 
 IOSUBSYSTEM_ENABLE;
 
+constexpr uint8_t MAX_POWER	=					85;
+constexpr float DEFAULT_PITCH =				149.0f;
+constexpr float DEFAULT_ROLL =				 0.27f;
+
 /////////////////////////////////////////////////
 /////////////ROVBuilderManipulator///////////////
 /////////////////////////////////////////////////
@@ -88,7 +92,6 @@ constexpr bool V_BACK_RIGHT_INVERSE =		false;
 
 constexpr uint8_t THRUSTER_SIZE =				8;
 
-constexpr uint8_t MAX_POWER =					85;
 
 /////////////////////////////////////////////////
 //////////////////RotaryCamera///////////////////
