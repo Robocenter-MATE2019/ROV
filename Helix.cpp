@@ -2,14 +2,12 @@
 
 Helix::Helix()
 {
-	m_left_helix = LevelMotor(LEFT_HELIX_MOTOR_LEFT_PIN, LEFT_HELIX_MOTOR_RIGHT_PIN);
-	m_right_helix = LevelMotor(RIGHT_HELIX_MOTOR_LEFT_PIN, RIGHT_HELIX_MOTOR_RIGHT_PIN);
+	m_helix = LevelMotor(HELIX_MOTOR_LEFT_PIN, HELIX_MOTOR_RIGHT_PIN);
 }
 
 void Helix::init()
 {
-	m_left_helix.init();
-	m_right_helix.init();	
+	m_helix.init();	
 	DEVICESPRINT("Helix.init()");
 }
 
@@ -17,6 +15,6 @@ void Helix::write(RovData& rov_data)
 {
 	TIME_DEBUGER;
 	DEVICESPRINT("Helix.write()");
-	m_left_helix.set_power(rov_data.m_left_helix);
-	m_right_helix.set_power(rov_data.m_right_helix);
+	m_helix.set_power(rov_data.m_helix);
+	
 }

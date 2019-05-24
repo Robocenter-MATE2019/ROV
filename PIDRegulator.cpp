@@ -46,7 +46,6 @@ int PIDRegulator::apply(float to_set, float current, bool flag = false)
 
 void PIDRegulator::set_k(float pK, float iK, float dK)
 {
-
 	m_pK = pK;
 	m_dK = iK;
 	m_iK = dK;

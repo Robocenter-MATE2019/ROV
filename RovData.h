@@ -10,6 +10,22 @@ struct RovData
 	int8_t m_axis_z;
 	int8_t m_axis_w;
 
+	float m_YawKp = 3.14;
+	float m_YawKi = 0;
+	float m_YawKd = 5;
+
+	float m_PitchKp = 2.3;
+	float m_PitchKi = 0;
+	float m_PitchKd = 3;
+
+	float m_RollKp = 2.3;
+	float m_RollKi = 0;
+	float m_RollKd = 3;
+
+	float m_DepthKp = 6;
+	float m_DepthKi = 0;
+	float m_DepthKd = 10;
+
 	uint8_t m_regulator_type;
 	int8_t m_manipulator_grab;
 	int8_t m_manipulator_rotate;
@@ -32,8 +48,7 @@ struct RovData
 	float m_pitch_to_set = DEFAULT_PITCH;
 	float m_depth_to_set = 0.0f;
 
-	int8_t m_right_helix;
-	int8_t m_left_helix;
+	int8_t m_helix;
 	int8_t m_coiler;
 	uint8_t m_electromagnet = 0;
 	bool m_is_core;

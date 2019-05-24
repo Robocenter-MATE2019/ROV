@@ -13,20 +13,23 @@
 #define INPUTSUBSYSTEM_ENABLE				1
 #define IOSUBSYSTEM_ENABLE					1
 
-#define MANIPULATOR_ENABLE					1
-#define THRUSTERSSUBSYSTEM_ENABLE			1
-#define ROTARYCAMERA_ENABLE					1
+#define MANIPULATOR_ENABLE					0
+#define THRUSTERSSUBSYSTEM_ENABLE			0
+#define ROTARYCAMERA_ENABLE					0
 
 #define COILER_ENABLE						0
 #define HELIX_ENABLE						0
 #define METALDETECTOR_ENABLE				0
 #define ELECTROMAGNET_ENABLE				0
 
-#define TEMPERATURE_SENSOR_ENABLE			1
+#define TEMPERATURE_SENSOR_ENABLE			0
 #define DEPTH_SENSOR_ENABLE					0
-#define IMU_ENABLE							1
+#define IMU_ENABLE							0
 
 #define UDP_ENABLE							1
+
+#define __MS5803__							0
+#define __MS5837__							1
 
 constexpr int SIZE_OUTPUT_DEVICES = 
 
@@ -123,11 +126,8 @@ constexpr uint8_t TEMPERATURE_SENSOR =			11;
 constexpr uint8_t COIL_MOTOR_LEFT_PIN =			30;
 constexpr uint8_t COIL_MOTOR_RIGHT_PIN =		32;
 
-constexpr uint8_t RIGHT_HELIX_MOTOR_LEFT_PIN =	38;
-constexpr uint8_t RIGHT_HELIX_MOTOR_RIGHT_PIN =	36;
-
-constexpr uint8_t LEFT_HELIX_MOTOR_LEFT_PIN =	35;
-constexpr uint8_t LEFT_HELIX_MOTOR_RIGHT_PIN =	42;
+constexpr uint8_t HELIX_MOTOR_LEFT_PIN =		38;
+constexpr uint8_t HELIX_MOTOR_RIGHT_PIN =		36;
 
 constexpr uint8_t METALDETECTOR_PIN =			A8;
 constexpr uint8_t ELECTROMAGNET_PIN =			26;
@@ -139,13 +139,14 @@ constexpr uint8_t ELECTROMAGNET_PIN =			26;
 constexpr uint8_t RIGHT_HELIX_BUTTON_TWIST =	18;
 constexpr uint8_t RIGHT_HELIX_BUTTON_UNTWIST =	21;
 
-constexpr uint8_t LEFT_HELIX_BUTTON_TWIST =		17;
-constexpr uint8_t LEFT_HELIX_BUTTON_UNTWIST =	20;
+constexpr uint8_t HELIX_BUTTON_TWIST =			17;
+constexpr uint8_t HELIX_BUTTON_UNTWIST =		20;
 
 constexpr uint8_t COILER_TWIST_BUTTON =			16;
 constexpr uint8_t COILER_UNTWIST_BUTTON =		19;
 
 /////////////////////////////////////////////////
 
-
+constexpr uint8_t SETTINGS_BUTTON_1 =			18;
+constexpr uint8_t SETTINGS_BUTTON_2 =			21;
 

@@ -4,7 +4,6 @@
  Author:	Виталий
 */
 
-
 #include <Ethernet.h>
 #include <Arduino.h>
 #include "Rov.h"
@@ -18,15 +17,10 @@ void setup()
 #ifdef SERIALENABLE
 	Serial.begin(115200);
 #endif
-	Serial.begin(115200);
 	rov.init();
 }
 
 void loop() 
 {
-	//Profiler p;
-//#ifdef SERIALENABLE
-//	Serial.println("=========================================");
-//#endif 
 	rov.run();
 }

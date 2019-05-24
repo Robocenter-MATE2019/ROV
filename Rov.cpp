@@ -5,7 +5,6 @@
 
 Rov::Rov()
 {
-	int i = 0;
 #if OUTPUTSUBSYSTEM_ENABLE
 	m_subsystem.create<OutputSubSystem>();
 #endif
@@ -16,7 +15,6 @@ Rov::Rov()
 	m_subsystem.create<IOSubSystem>();
 #endif
 }
-
 
 void Rov::init()
 {

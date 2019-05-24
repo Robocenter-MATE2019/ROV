@@ -19,14 +19,26 @@ void UDPConnection::init()
 
 bool UDPConnection::receivePacket(RovData& rov_data)
 {
-	if (m_udp.parsePacket())
+	int size = m_udp.parsePacket();
+	if (size)
 	{
-		InputPacket packet;
-		char packetBuffer[17];
-		m_udp.read(packetBuffer, 17);
-		memcpy(&packet, packetBuffer, sizeof(packetBuffer));
-		parsePayload(packet, rov_data);
-		return true;
+		if (is_settings && (size > sizeof(InputPacket)))
+		{
+			InputSettingsPacket packet;
+			char packetBuffer[sizeof(InputSettingsPacket)] = { 0 };
+			m_udp.read(packetBuffer, sizeof(InputSettingsPacket));
+			memcpy(&packet, packetBuffer, sizeof(packetBuffer));
+			parseSettingsPayload(packet, rov_data);
+		}
+		else if(!is_settings)
+		{
+			InputPacket packet;
+			char packetBuffer[sizeof(InputPacket)];
+			m_udp.read(packetBuffer, sizeof(InputPacket));
+			memcpy(&packet, packetBuffer, sizeof(packetBuffer));
+			parsePayload(packet, rov_data);
+			return true;
+		}
 	}
 	else return false;
 }
@@ -122,13 +134,9 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 	else if (actionState[COILER_UNTWIST_BUTTON]) rov_data.m_coiler = -1;
 	else rov_data.m_coiler = 0;
 
-	if (actionState[RIGHT_HELIX_BUTTON_TWIST]) rov_data.m_left_helix = 1;
-	else if (actionState[RIGHT_HELIX_BUTTON_UNTWIST]) rov_data.m_left_helix = -1;
-	else rov_data.m_left_helix = 0;
-
-	if (actionState[LEFT_HELIX_BUTTON_TWIST]) rov_data.m_right_helix = 1;
-	else if (actionState[LEFT_HELIX_BUTTON_UNTWIST]) rov_data.m_right_helix = -1;
-	else rov_data.m_right_helix = 0;
+	if (actionState[HELIX_BUTTON_TWIST]) rov_data.m_helix = 1;
+	else if (actionState[HELIX_BUTTON_UNTWIST]) rov_data.m_helix = -1;
+	else rov_data.m_helix = 0;
 
 	if (actionState[8]) rov_data.m_roll_to_set = 160;
 	else if (actionState[9]) rov_data.m_roll_to_set = 200;
@@ -138,24 +146,66 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 	else if (actionState[3]) rov_data.m_pitch_to_set = 309;
 	else rov_data.m_roll_to_set = DEFAULT_PITCH;
 
+
 	rov_data.m_yaw_reg_enable = actionState[12];
 	rov_data.m_depth_reg_enable = actionState[13];
 	rov_data.m_roll_reg_enable = actionState[14];
 	rov_data.m_pitch_reg_enable = actionState[15];
 
+	is_settings = actionState[SETTINGS_BUTTON_1] && actionState[SETTINGS_BUTTON_2];
+
 	return true;
 }
+
+bool UDPConnection::parseSettingsPayload(InputSettingsPacket& packet, RovData& rov_data)
+{
+	rov_data.m_axis_x = packet.axis_X;
+	rov_data.m_axis_y = packet.axis_Y;
+	rov_data.m_axis_z = packet.axis_Z;
+	rov_data.m_axis_w = packet.axis_W;
+
+	rov_data.m_yaw_to_set = packet.YawToSet;
+	rov_data.m_depth_to_set = packet.DepthToSet;
+	rov_data.m_roll_to_set = packet.RollToSet;
+	rov_data.m_pitch_to_set = packet.PitchToSet;
+
+	rov_data.m_yaw_reg_enable = packet.yaw_regulator;
+	rov_data.m_pitch_reg_enable = packet.pitch_regulator;
+	rov_data.m_roll_reg_enable = packet.roll_regulator;
+	rov_data.m_depth_reg_enable = packet.depth_regulator;
+
+	rov_data.m_YawKp = packet.YawKp;
+	rov_data.m_YawKi = packet.YawKi;
+	rov_data.m_YawKd = packet.YawKd;
+
+	rov_data.m_PitchKp = packet.PitchKp;
+	rov_data.m_PitchKi = packet.PitchKi;
+	rov_data.m_PitchKd = packet.PitchKd;
+
+	rov_data.m_RollKp = packet.RollKp;
+	rov_data.m_RollKi = packet.RollKi;
+	rov_data.m_RollKd = packet.RollKd;
+
+	rov_data.m_DepthKp = packet.DepthKp;
+	rov_data.m_DepthKi = packet.DepthKi;
+	rov_data.m_DepthKd = packet.DepthKd;
+
+	is_settings = packet.is_settings;
+}
+
 
 void UDPConnection::write(RovData& rov_data)
 {
 	TIME_DEBUGER;
 	OutputPacket packet;
+	
 	packet.yaw = rov_data.m_yaw;
 	packet.depth = rov_data.m_depth;
 	packet.roll = rov_data.m_roll;
 	packet.pitch = rov_data.m_pitch;
 	packet.temperature = rov_data.m_temperature;
 	packet.core = rov_data.m_is_core;
+
 	sendPacket(packet);
 	DEVICESPRINT("UDPConnection.write()");
 }

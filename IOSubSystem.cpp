@@ -3,7 +3,6 @@
 
 IOSubSystem::IOSubSystem()
 {
-	int i = 0;
 #if UDP_ENABLE
 	m_devices.create<UDPConnection>();
 #endif

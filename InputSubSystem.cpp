@@ -4,12 +4,16 @@
 
 InputSubSystem::InputSubSystem()
 {
-	int i = 0;
 #if TEMPERATURE_SENSOR_ENABLE
 	m_devices.create<TemperatureSensor>();
 #endif
 #if DEPTH_SENSOR_ENABLE
+#if __MS5803__
 	m_devices.create<DepthSensorMS5803>();
+#endif
+#if __MS5837__
+	m_devices.create<DepthSensorMS5837>();
+#endif
 #endif
 #if IMU_ENABLE
 	m_devices.create<IMU>();

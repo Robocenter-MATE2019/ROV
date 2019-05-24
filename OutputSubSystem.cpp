@@ -4,7 +4,6 @@
 
  OutputSubSystem::OutputSubSystem()
 {
-	int i = 0;
 #if MANIPULATOR_ENABLE
 	m_devices.create<ROVBuilderManipulator>();
 #endif
