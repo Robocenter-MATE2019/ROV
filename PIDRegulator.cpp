@@ -10,16 +10,11 @@ PIDRegulator::PIDRegulator(float pK, float iK, float dK)
 	m_pK = pK;
 	m_dK = dK;
 	m_iK = iK;
-	m_timer.start();
 }
 
 int PIDRegulator::apply(float to_set, float current, bool flag = false)
 {
-	if (is_first)
-	{
-		m_timer.start();
-		is_first = false;
-	}
+	if (!m_timer.is_started()) m_timer.start();
 	float result;
 	float integral_part;
 	float proportional_part;
