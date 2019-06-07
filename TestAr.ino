@@ -9,6 +9,7 @@
 #include "Rov.h"
 #include "Timer.h"
 #include "Profiler.h"
+#include "BrushlessMotor.h"
 
 Rov rov;
 
@@ -17,6 +18,7 @@ void setup()
 #ifdef SERIALENABLE
 	Serial.begin(115200);
 #endif
+	//Serial.begin(115200);
 	rov.init();
 }
 
@@ -24,3 +26,4 @@ void loop()
 {
 	rov.run();
 }
+

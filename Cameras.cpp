@@ -11,6 +11,8 @@ void Cameras::init()
 {
 	m_rotary_cam[0].init();
 	m_rotary_cam[1].init();
+	m_rotary_cam[0].setRotationTime(30);
+	m_rotary_cam[1].setRotationTime(30);
 	DEVICESPRINT("Cameras.init()");
 }
 

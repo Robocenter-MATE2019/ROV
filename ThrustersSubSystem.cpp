@@ -20,10 +20,10 @@ ThrustersSubSystem::ThrustersSubSystem()
 	m_motors[6].set_inverse(V_BACK_LEFT_INVERSE);
 	m_motors[7].set_inverse(V_BACK_RIGHT_INVERSE);
 
-	m_yaw_reg = PIDRegulator(3.14, 0, 5);  //3.14 0.1 10
-	m_depth_reg = PIDRegulator(6, 0, 10); //6 0.1 10
-	m_roll_reg = PIDRegulator(2.3, 0, 3); //2.3 0.1 3
-	m_pitch_reg = PIDRegulator(2.3, 0, 3);//2.3 0.1 3
+	m_yaw_reg = PIDRegulator(0, 0, 0);  //3.14 0.1 10
+	m_depth_reg = PIDRegulator(0, 0, 0); //6 0.1 10
+	m_roll_reg = PIDRegulator(0, 0, 0); //2.3 0.1 3
+	m_pitch_reg = PIDRegulator(0, 0, 0);//2.3 0.1 3
 }
 
 void ThrustersSubSystem::init()
@@ -72,7 +72,6 @@ void ThrustersSubSystem::applyYawReg(int8_t power[], RovData& rov_data)
 	power[1] = constrain(power[1] + pow, -rov_data.MAX_HORIZONTAL_POWER, rov_data.MAX_HORIZONTAL_POWER);
 	power[2] = constrain(power[2] - pow, -rov_data.MAX_HORIZONTAL_POWER, rov_data.MAX_HORIZONTAL_POWER);
 	power[3] = constrain(power[3] + pow, -rov_data.MAX_HORIZONTAL_POWER, rov_data.MAX_HORIZONTAL_POWER);
-	
 }
 
 void ThrustersSubSystem::applyRollReg(int8_t power[], RovData& rov_data)
@@ -81,8 +80,7 @@ void ThrustersSubSystem::applyRollReg(int8_t power[], RovData& rov_data)
 	power[4] = constrain(power[4] + pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
 	power[5] = constrain(power[5] + pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
 	power[6] = constrain(power[6] - pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
-	power[7] = constrain(power[7] - pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
-	
+	power[7] = constrain(power[7] - pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);	
 }
 
 void ThrustersSubSystem::applyPitchReg(int8_t power[], RovData& rov_data)
@@ -94,7 +92,7 @@ void ThrustersSubSystem::applyPitchReg(int8_t power[], RovData& rov_data)
 	power[7] = constrain(power[7] + pow, -rov_data.MAX_VERTICAL_POWER, rov_data.MAX_VERTICAL_POWER);
 }
 
-void ThrustersSubSystem::set_power(int8_t x, int8_t y, int8_t w, int8_t z, uint8_t regulator_type, RovData& rov_data)
+void ThrustersSubSystem::set_power(int8_t x, int8_t y, int8_t w, int8_t z, RovData& rov_data)
 {
 	int8_t power[THRUSTER_SIZE] = {0};
 	manual_regulator(power, x, y, w, z, rov_data);
@@ -126,6 +124,6 @@ void ThrustersSubSystem::write(RovData& rov_data)
 	m_pitch_reg.set_k(rov_data.m_PitchKp, rov_data.m_PitchKi, rov_data.m_PitchKd);
 	m_roll_reg.set_k(rov_data.m_RollKp, rov_data.m_RollKi, rov_data.m_RollKp);
 	m_depth_reg.set_k(rov_data.m_DepthKp, rov_data.m_DepthKi, rov_data.m_DepthKd);
-	set_power(rov_data.m_axis_x, rov_data.m_axis_y, rov_data.m_axis_w, rov_data.m_axis_z, rov_data.m_regulator_type, rov_data);
+	set_power(rov_data.m_axis_x, rov_data.m_axis_y, rov_data.m_axis_w, rov_data.m_axis_z, rov_data);
 }
 

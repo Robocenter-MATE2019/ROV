@@ -18,5 +18,4 @@ void DepthSensorMS5837::read(RovData& rov_data)
 	DEVICESPRINT("DepthSensor.read()");
 	m_ms5837.read();
 	rov_data.m_depth = m_ms5837.pressure();
-	Serial.println(rov_data.m_depth);
 }

@@ -12,5 +12,6 @@ public:
 	void init();
 	void write(RovData& rov_data);
 private:
+	LevelMotor m_helix_;
 	LevelMotor m_helix;
 };

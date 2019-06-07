@@ -88,4 +88,5 @@ private:
 	byte m_mac[6] = { MAC };
 	Timer m_timer;
 	bool is_settings = false;
+	bool button_3_release = false;
 };

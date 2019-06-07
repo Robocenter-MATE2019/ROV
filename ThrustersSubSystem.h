@@ -13,7 +13,7 @@ public:
 	ThrustersSubSystem();
 	void init();
 	void write(RovData& rov_data);
-	void set_power(int8_t x, int8_t y, int8_t w, int8_t z, uint8_t regulator_type, RovData& rov_data);
+	void set_power(int8_t x, int8_t y, int8_t w, int8_t z, RovData& rov_data);
 private:
 	void applyYawReg(int8_t power[], RovData& rov_data);
 	void applyDepthReg(int8_t power[], RovData& rov_data);

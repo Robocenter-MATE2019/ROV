@@ -12,5 +12,5 @@ public:
 	int8_t get_power();
 protected:
 	int8_t m_power;
-	bool m_is_inverse;
+	bool m_is_inverse = false;
 };

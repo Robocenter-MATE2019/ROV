@@ -14,6 +14,10 @@ void Electromagnet::init()
 void Electromagnet::write(RovData& rov_data)
 {
 	TIME_DEBUGER;
-	if(rov_data.m_electromagnet > 0) digitalWrite(m_pin, HIGH);
+	if (rov_data.m_electromagnet)
+	{
+		//Serial.println("111");
+		digitalWrite(m_pin, HIGH);
+	}
 	else digitalWrite(m_pin, LOW);
 }

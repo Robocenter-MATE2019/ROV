@@ -23,10 +23,15 @@ RotaryCamera::~RotaryCamera()
 	m_driver.detach();
 }
 
+void RotaryCamera::setRotationTime(uint8_t time)
+{
+	m_rotation_time = time;
+}
+
 void RotaryCamera::rotate(int8_t angle)
 {	
 	m_lastangle = angle != m_lastangle ? angle : m_lastangle;
-	if (timer.elapsed() > 30)
+	if (timer.elapsed() > m_rotation_time)//30
 	{
 		m_angle += m_lastangle;
 		timer.start();

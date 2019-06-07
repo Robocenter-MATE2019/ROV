@@ -11,6 +11,7 @@ public:
 	RotaryCamera(int8_t pin);
 	void init();
 	void rotate(int8_t angle);
+	void setRotationTime(uint8_t time);
 	~RotaryCamera();
 private:
 	Timer timer;
@@ -19,4 +20,5 @@ private:
 	uint8_t m_pin;
 	int8_t m_lastangle = 0;
 	int8_t defAngle;
+	uint8_t m_rotation_time;
 };

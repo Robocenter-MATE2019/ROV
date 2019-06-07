@@ -23,5 +23,7 @@ void ROVBuilderManipulator::write(RovData& rov_data)
 {
 	TIME_DEBUGER;
 	DEVICESPRINT("ROVBuilderManipulator.write()");
-	set_power(rov_data.m_manipulator_grab, rov_data.m_manipulator_rotate);
+	m_release_level_motor.set_inverse(rov_data.m_manipulator_release_inverse);
+	m_rotate_level_motor.set_inverse(rov_data.m_manipulator_rotate_inverse);
+	set_power(rov_data.m_manipulator_grab, -rov_data.m_manipulator_rotate);
 }

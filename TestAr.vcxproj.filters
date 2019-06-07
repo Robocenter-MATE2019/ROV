@@ -15,9 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="TestAr.ino" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="__vm\.TestAr.vsarduino.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -43,9 +40,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="UDPConnection.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="UARTCommunicator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ROVBuilderManipulator.h">
@@ -161,9 +155,6 @@
     <ClCompile Include="UDPConnection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UARTCommunicator.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ROVBuilderManipulator.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -218,5 +209,8 @@
     <ClCompile Include="DepthSensorMS5803.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TestAr.ino" />
   </ItemGroup>
 </Project>
