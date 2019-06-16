@@ -8,6 +8,7 @@ Helix::Helix()
 
 void Helix::init()
 {
+	m_helix_.set_inverse(true);
 	m_helix_.init();
 	m_helix.init();	
 	DEVICESPRINT("Helix.init()");

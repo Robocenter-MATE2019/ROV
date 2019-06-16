@@ -78,6 +78,9 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 	rov_data.m_axis_w = packet.axisZ_p;
 	//////////////////////////
 
+	//rov_data.m_pitch_to_set = packet.Pitch;
+	//rov_data.m_roll_to_set = packet.Roll;
+
 	if (actionState[7])
 	{
 		rov_data.BERSERK = true;
@@ -170,7 +173,7 @@ bool UDPConnection::parsePayload(InputPacket& packet, RovData& rov_data)
 
 	rov_data.m_manipulator_release_inverse = actionState[MANIPULATOR_RELEASE_INVERSE];
 	rov_data.m_manipulator_rotate_inverse = actionState[MANIPULATOR_ROTATE_INVERSE];
-
+	
 	if (actionState[22]) is_settings = true;
 
 	return true;

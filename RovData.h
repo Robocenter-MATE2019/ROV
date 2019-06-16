@@ -16,11 +16,11 @@ struct RovData
 
 	float m_PitchKp = 2.3;
 	float m_PitchKi = 0;
-	float m_PitchKd = 3;
+	float m_PitchKd = 0.5;
 
 	float m_RollKp = 2.3;
 	float m_RollKi = 0;
-	float m_RollKd = 3;
+	float m_RollKd = 0.5;
 
 	float m_DepthKp = 5;
 	float m_DepthKi = 0;
@@ -51,7 +51,7 @@ struct RovData
 	int8_t m_helix_one;
 	int8_t m_helix_two;
 	int8_t m_coiler;
-	bool m_electromagnet = true;
+	bool m_electromagnet = false;
 	bool m_is_core = false;
 
 	bool BERSERK = false;

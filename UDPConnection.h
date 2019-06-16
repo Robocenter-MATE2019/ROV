@@ -56,6 +56,8 @@ struct InputPacket
 	int8_t axisW_p = 0;
 	int8_t camera_rotate = 0;
 	int8_t manipulator_rotate = 0;
+	//float Pitch = 149.0f;
+	//float Roll = 0.27f;
 };
 
 struct OutputPacket

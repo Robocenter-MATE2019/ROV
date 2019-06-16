@@ -84,13 +84,13 @@ constexpr bool H_BACK_LEFT_INVERSE =		 true;
 constexpr uint8_t H_BACK_RIGHT =				6;
 constexpr bool H_BACK_RIGHT_INVERSE =		false;
 
-constexpr uint8_t V_FRONT_LEFT =				7;
+constexpr uint8_t V_FRONT_LEFT =				2;
 constexpr bool V_FRONT_LEFT_INVERSE =		 true;
-constexpr uint8_t V_FRONT_RIGHT =				2;
+constexpr uint8_t V_FRONT_RIGHT =				44;
 constexpr bool V_FRONT_RIGHT_INVERSE =		false;
 constexpr uint8_t V_BACK_LEFT =				   46;
 constexpr bool V_BACK_LEFT_INVERSE =		 true;
-constexpr uint8_t V_BACK_RIGHT =			   44;
+constexpr uint8_t V_BACK_RIGHT =			   7;
 constexpr bool V_BACK_RIGHT_INVERSE =		false;
 
 constexpr uint8_t THRUSTER_SIZE =				8;
